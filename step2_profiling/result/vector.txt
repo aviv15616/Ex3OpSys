@@ -1,0 +1,2 @@
+Convex hull area (vector): 3.99982e+06
+Hull size: 36

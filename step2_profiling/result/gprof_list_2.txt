@@ -1,0 +1,930 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 15.86      0.23     0.23 18714737     0.00     0.00  common::Point::operator<(common::Point const&) const
+ 15.17      0.45     0.22  3999958     0.00     0.00  common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >)::{lambda(common::Point const&, common::Point const&, common::Point const&)#1}::operator()(common::Point const&, common::Point const&, common::Point const&) const
+  6.90      0.55     0.10 49429390     0.00     0.00  std::_List_iterator<common::Point>::operator*() const
+  5.52      0.63     0.08  2000000     0.00     0.00  double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&)
+  5.52      0.71     0.08        4     0.02     0.02  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_clear()
+  4.83      0.78     0.07 61429329     0.00     0.00  std::_List_iterator<common::Point>::_List_iterator(std::__detail::_List_node_base*)
+  4.14      0.84     0.06 18714737     0.00     0.00  std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>::operator()(std::__detail::_List_node_base*, std::__detail::_List_node_base*) const
+  3.45      0.89     0.05 57429390     0.00     0.00  __gnu_cxx::__aligned_membuf<common::Point>::_M_addr()
+  3.45      0.94     0.05 57429390     0.00     0.00  std::_List_node<common::Point>::_M_valptr()
+  2.76      0.98     0.04 11999917     0.00     0.00  std::_List_iterator<common::Point>::operator--()
+  2.07      1.01     0.03 57429390     0.00     0.00  __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr()
+  2.07      1.04     0.03 36611736     0.00     0.00  std::operator!=(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&)
+  2.07      1.07     0.03 11999943     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::end()
+  2.07      1.10     0.03  1000012     0.00     0.00  void std::__detail::_Scratch_list::merge<std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void> >(std::__detail::_List_node_base&, std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>)
+  2.07      1.13     0.03  1000000     0.00     0.00  std::_List_iterator<common::Point>::operator++()
+  1.72      1.16     0.03  1999964     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_erase(std::_List_iterator<common::Point>)
+  1.38      1.18     0.02 36611770     0.00     0.00  std::_List_const_iterator<common::Point>::operator++()
+  1.38      1.20     0.02 10000000     0.00     0.00  double&& std::forward<double>(std::remove_reference<double>::type&)
+  1.38      1.22     0.02     6411     0.00     0.00  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand()
+  1.38      1.24     0.02      144     0.00     0.00  std::_List_const_iterator<common::Point>::operator->() const
+  1.38      1.25     0.02        1     0.02     0.05  void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_initialize_dispatch<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::__false_type)
+  1.03      1.27     0.01  7999917     0.00     0.00  void std::__advance<std::_List_iterator<common::Point>, long>(std::_List_iterator<common::Point>&, long, std::bidirectional_iterator_tag)
+  1.03      1.28     0.01  4000000     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_inc_size(unsigned long)
+  1.03      1.30     0.01  1999986     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_size() const
+  1.03      1.31     0.01  1999982     0.00     0.00  long std::__distance<common::Point>(std::_List_iterator<common::Point>, std::_List_iterator<common::Point>, std::input_iterator_tag)
+  1.03      1.33     0.01  1999982     0.00     0.00  long std::__distance<common::Point>(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::input_iterator_tag)
+  0.69      1.34     0.01  7999928     0.00     0.00  std::_List_const_iterator<common::Point>::_List_const_iterator(std::_List_iterator<common::Point> const&)
+  0.69      1.35     0.01  4000000     0.00     0.00  std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::__allocated_ptr(std::allocator<std::_List_node<common::Point> >&, std::_List_node<common::Point>*)
+  0.69      1.36     0.01  4000000     0.00     0.00  std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::operator=(decltype(nullptr))
+  0.69      1.37     0.01  4000000     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_node()
+  0.69      1.38     0.01  4000000     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_put_node(std::_List_node<common::Point>*)
+  0.69      1.39     0.01  3000000     0.00     0.00  std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&)
+  0.69      1.40     0.01  1999982     0.00     0.00  std::operator==(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&)
+  0.69      1.41     0.01  1999964     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::erase(std::_List_const_iterator<common::Point>)
+  0.69      1.42     0.01  1000000     0.00     0.00  std::__detail::_Scratch_list::_M_take_one(std::__detail::_List_node_base*)
+  0.69      1.43     0.01        1     0.01     1.14  std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >)
+  0.69      1.44     0.01                             _init
+  0.34      1.45     0.01  1000000     0.00     0.00  std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&)
+  0.34      1.45     0.01      624     0.00     0.00  std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+  0.00      1.45     0.00 11000000     0.00     0.00  common::Point const& std::forward<common::Point const&>(std::remove_reference<common::Point const&>::type&)
+  0.00      1.45     0.00  8000000     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator()
+  0.00      1.45     0.00  4000000     0.00     0.00  std::uniform_real_distribution<double>::param_type::a() const
+  0.00      1.45     0.00  4000000     0.00     0.00  std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::~__allocated_ptr()
+  0.00      1.45     0.00  4000000     0.00     0.00  std::__new_allocator<std::_List_node<common::Point> >::deallocate(std::_List_node<common::Point>*, unsigned long)
+  0.00      1.45     0.00  4000000     0.00     0.00  std::__new_allocator<std::_List_node<common::Point> >::allocate(unsigned long, void const*)
+  0.00      1.45     0.00  4000000     0.00     0.00  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::min()
+  0.00      1.45     0.00  4000000     0.00     0.00  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()()
+  0.00      1.45     0.00  4000000     0.00     0.00  std::allocator<std::_List_node<common::Point> >* std::__addressof<std::allocator<std::_List_node<common::Point> > >(std::allocator<std::_List_node<common::Point> >&)
+  0.00      1.45     0.00  4000000     0.00     0.00  std::log(long double)
+  0.00      1.45     0.00  4000000     0.00     0.00  operator new(unsigned long, void*)
+  0.00      1.45     0.00  3999984     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin()
+  0.00      1.45     0.00  3999964     0.00     0.00  std::_List_const_iterator<common::Point>::_M_const_cast() const
+  0.00      1.45     0.00  2000002     0.00     0.00  std::reverse_iterator<std::_List_iterator<common::Point> >::base() const
+  0.00      1.45     0.00  2000000     0.00     0.00  std::uniform_real_distribution<double>::param_type::b() const
+  0.00      1.45     0.00  2000000     0.00     0.00  double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&)
+  0.00      1.45     0.00  2000000     0.00     0.00  double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_real_distribution<double>::param_type const&)
+  0.00      1.45     0.00  2000000     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::back()
+  0.00      1.45     0.00  2000000     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::insert(std::_List_const_iterator<common::Point>, common::Point const&)
+  0.00      1.45     0.00  2000000     0.00     0.00  std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>, double>::_Adaptor(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&)
+  0.00      1.45     0.00  2000000     0.00     0.00  std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>, double>::operator()()
+  0.00      1.45     0.00  2000000     0.00     0.00  unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+  0.00      1.45     0.00  1999994     0.00     0.00  std::__detail::_Scratch_list::swap(std::__detail::_List_node_base&)
+  0.00      1.45     0.00  1999986     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_node_count() const
+  0.00      1.45     0.00  1999986     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::size() const
+  0.00      1.45     0.00  1999973     0.00     0.00  std::__detail::_Scratch_list::empty() const
+  0.00      1.45     0.00  1999964     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_dec_size(unsigned long)
+  0.00      1.45     0.00  1000144     0.00     0.00  __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr() const
+  0.00      1.45     0.00  1000144     0.00     0.00  __gnu_cxx::__aligned_membuf<common::Point>::_M_addr() const
+  0.00      1.45     0.00  1000144     0.00     0.00  std::_List_node<common::Point>::_M_valptr() const
+  0.00      1.45     0.00  1000012     0.00     0.00  std::__detail::_List_node_base* std::__addressof<std::__detail::_List_node_base>(std::__detail::_List_node_base&)
+  0.00      1.45     0.00  1000002     0.00     0.00  std::reverse_iterator<std::_List_iterator<common::Point> >::reverse_iterator(std::_List_iterator<common::Point>)
+  0.00      1.45     0.00  1000001     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::rend()
+  0.00      1.45     0.00  1000001     0.00     0.00  bool std::operator==<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&)
+  0.00      1.45     0.00  1000001     0.00     0.00  std::operator==(std::_List_iterator<common::Point> const&, std::_List_iterator<common::Point> const&)
+  0.00      1.45     0.00  1000001     0.00     0.00  bool std::operator!=<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&)
+  0.00      1.45     0.00  1000001     0.00     0.00  std::operator!=(std::_List_iterator<common::Point> const&, std::_List_iterator<common::Point> const&)
+  0.00      1.45     0.00  1000000     0.00     0.00  common::Point::Point(double, double)
+  0.00      1.45     0.00  1000000     0.00     0.00  std::reverse_iterator<std::_List_iterator<common::Point> >::operator*() const
+  0.00      1.45     0.00  1000000     0.00     0.00  std::_List_const_iterator<common::Point>::operator*() const
+  0.00      1.45     0.00  1000000     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::empty() const
+  0.00      1.45     0.00  1000000     0.00     0.00  std::reverse_iterator<std::_List_iterator<common::Point> >::operator++()
+  0.00      1.45     0.00  1000000     0.00     0.00  common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<common::Point const&>(common::Point const&)
+  0.00      1.45     0.00  1000000     0.00     0.00  common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<double, double>(double&&, double&&)
+  0.00      1.45     0.00  1000000     0.00     0.00  void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<common::Point const&>(std::_List_iterator<common::Point>, common::Point const&)
+  0.00      1.45     0.00  1000000     0.00     0.00  void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<double, double>(std::_List_iterator<common::Point>, double&&, double&&)
+  0.00      1.45     0.00      624     0.00     0.00  unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long)
+  0.00      1.45     0.00      623     0.00     0.00  std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+  0.00      1.45     0.00      623     0.00     0.00  unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long)
+  0.00      1.45     0.00       65     0.00     0.00  std::__detail::_Scratch_list::_Scratch_list()
+  0.00      1.45     0.00       43     0.00     0.00  std::_List_const_iterator<common::Point>::_List_const_iterator(std::__detail::_List_node_base const*)
+  0.00      1.45     0.00       39     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() const
+  0.00      1.45     0.00        5     0.00     0.00  std::__new_allocator<std::_List_node<common::Point> >::~__new_allocator()
+  0.00      1.45     0.00        4     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() const
+  0.00      1.45     0.00        4     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::~_List_impl()
+  0.00      1.45     0.00        4     0.00     0.02  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::~_List_base()
+  0.00      1.45     0.00        4     0.00     0.02  std::__cxx11::list<common::Point, std::allocator<common::Point> >::~list()
+  0.00      1.45     0.00        4     0.00     0.00  std::__detail::_List_node_header::_M_init()
+  0.00      1.45     0.00        3     0.00     0.00  std::__detail::_List_node_header::_M_base()
+  0.00      1.45     0.00        3     0.00     0.00  std::__detail::_List_node_header::_List_node_header()
+  0.00      1.45     0.00        2     0.00     0.00  std::reverse_iterator<std::_List_const_iterator<common::Point> >::operator->() const
+  0.00      1.45     0.00        2     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() const
+  0.00      1.45     0.00        2     0.00     0.00  common::Point const* std::reverse_iterator<std::_List_const_iterator<common::Point> >::_S_to_pointer<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>)
+  0.00      1.45     0.00        2     0.00     0.00  std::reverse_iterator<std::_List_const_iterator<common::Point> >::reverse_iterator(std::_List_const_iterator<common::Point>)
+  0.00      1.45     0.00        2     0.00     0.00  std::_List_const_iterator<common::Point>::operator--()
+  0.00      1.45     0.00        2     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl()
+  0.00      1.45     0.00        2     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base()
+  0.00      1.45     0.00        2     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::list()
+  0.00      1.45     0.00        2     0.00     0.00  std::remove_reference<std::allocator<std::_List_node<common::Point> >&>::type&& std::move<std::allocator<std::_List_node<common::Point> >&>(std::allocator<std::_List_node<common::Point> >&)
+  0.00      1.45     0.00        1     0.00     0.02  double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&)
+  0.00      1.45     0.00        1     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() const
+  0.00      1.45     0.00        1     0.00     0.01  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long)
+  0.00      1.45     0.00        1     0.00     0.01  std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long)
+  0.00      1.45     0.00        1     0.00     0.00  std::uniform_real_distribution<double>::param_type::param_type(double, double)
+  0.00      1.45     0.00        1     0.00     0.00  std::uniform_real_distribution<double>::uniform_real_distribution(double, double)
+  0.00      1.45     0.00        1     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl&&)
+  0.00      1.45     0.00        1     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::allocator<std::_List_node<common::Point> >&&)
+  0.00      1.45     0.00        1     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::allocator<std::_List_node<common::Point> >&&)
+  0.00      1.45     0.00        1     0.00     0.00  std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >&&)
+  0.00      1.45     0.00        1     0.00     0.53  std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort()
+  0.00      1.45     0.00        1     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin()
+  0.00      1.45     0.00        1     0.00     0.00  std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> >&&)
+  0.00      1.45     0.00        1     0.00     0.05  std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&)
+  0.00      1.45     0.00        1     0.00     0.00  std::__detail::_List_node_header::_List_node_header(std::__detail::_List_node_header&&)
+  0.00      1.45     0.00        1     0.00     0.00  std::__is_constant_evaluated()
+  0.00      1.45     0.00        1     0.00     0.00  std::abs(double)
+  0.00      1.45     0.00        1     0.00     0.00  void std::__advance<std::_List_const_iterator<common::Point>, long>(std::_List_const_iterator<common::Point>&, long, std::bidirectional_iterator_tag)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.69% of 1.45 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     99.3    0.00    1.44                 main [1]
+                0.01    1.13       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+                0.00    0.10 2000000/2000000     double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [10]
+                0.00    0.07       3/4           std::__cxx11::list<common::Point, std::allocator<common::Point> >::~list() [17]
+                0.00    0.05 1000000/1000000     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<double, double>(double&&, double&&) [21]
+                0.00    0.05       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [23]
+                0.00    0.02       1/1           double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+                0.00    0.01       1/1           std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [61]
+                0.00    0.00       1/1999986     std::__cxx11::list<common::Point, std::allocator<common::Point> >::size() const [48]
+                0.00    0.00       1/2           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list() [121]
+                0.00    0.00       1/1           std::uniform_real_distribution<double>::uniform_real_distribution(double, double) [125]
+-----------------------------------------------
+                0.01    1.13       1/1           main [1]
+[2]     78.7    0.01    1.13       1         std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+                0.00    0.53       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [3]
+                0.22    0.00 3999958/3999958     common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >)::{lambda(common::Point const&, common::Point const&, common::Point const&)#1}::operator()(common::Point const&, common::Point const&, common::Point const&) const [7]
+                0.01    0.08 1999982/1999982     long std::__distance<common::Point>(std::_List_iterator<common::Point>, std::_List_iterator<common::Point>, std::input_iterator_tag) [14]
+                0.01    0.04 1999964/1999964     std::__cxx11::list<common::Point, std::allocator<common::Point> >::erase(std::_List_const_iterator<common::Point>) [25]
+                0.01    0.03 7999917/7999917     void std::__advance<std::_List_iterator<common::Point>, long>(std::_List_iterator<common::Point>&, long, std::bidirectional_iterator_tag) [27]
+                0.02    0.02 8999916/49429390     std::_List_iterator<common::Point>::operator*() const [8]
+                0.00    0.04 2000000/2000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::insert(std::_List_const_iterator<common::Point>, common::Point const&) [30]
+                0.03    0.00 1000000/1000000     std::_List_iterator<common::Point>::operator++() [35]
+                0.02    0.01 7999942/11999943     std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() [26]
+                0.00    0.02       1/4           std::__cxx11::list<common::Point, std::allocator<common::Point> >::~list() [17]
+                0.00    0.01 1999984/1999986     std::__cxx11::list<common::Point, std::allocator<common::Point> >::size() const [48]
+                0.00    0.01 1000000/1000000     std::reverse_iterator<std::_List_iterator<common::Point> >::operator*() const [57]
+                0.01    0.00 3999964/7999928     std::_List_const_iterator<common::Point>::_List_const_iterator(std::_List_iterator<common::Point> const&) [49]
+                0.00    0.00 1000000/1000000     std::reverse_iterator<std::_List_iterator<common::Point> >::operator++() [64]
+                0.00    0.00 1999983/3999984     std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() [62]
+                0.00    0.00 1000001/1000001     std::__cxx11::list<common::Point, std::allocator<common::Point> >::rend() [65]
+                0.00    0.00       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() [68]
+                0.00    0.00 1000001/1000001     std::operator!=(std::_List_iterator<common::Point> const&, std::_List_iterator<common::Point> const&) [101]
+                0.00    0.00 1000001/1000001     bool std::operator!=<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&) [100]
+                0.00    0.00       1/2           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list() [121]
+                0.00    0.00       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> >&&) [130]
+-----------------------------------------------
+                0.00    0.53       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[3]     36.8    0.00    0.53       1         std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [3]
+                0.03    0.49 1000012/1000012     void std::__detail::_Scratch_list::merge<std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void> >(std::__detail::_List_node_base&, std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>) [4]
+                0.01    0.00 1000000/1000000     std::__detail::_Scratch_list::_M_take_one(std::__detail::_List_node_base*) [55]
+                0.00    0.00 1000000/3999984     std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() [62]
+                0.00    0.00 1999994/1999994     std::__detail::_Scratch_list::swap(std::__detail::_List_node_base&) [90]
+                0.00    0.00 1999973/1999973     std::__detail::_Scratch_list::empty() const [91]
+                0.00    0.00 1000000/1000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::empty() const [104]
+                0.00    0.00      65/65          std::__detail::_Scratch_list::_Scratch_list() [107]
+-----------------------------------------------
+                0.03    0.49 1000012/1000012     std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [3]
+[4]     36.1    0.03    0.49 1000012         void std::__detail::_Scratch_list::merge<std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void> >(std::__detail::_List_node_base&, std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>) [4]
+                0.06    0.43 18714737/18714737     std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>::operator()(std::__detail::_List_node_base*, std::__detail::_List_node_base*) const [5]
+                0.00    0.00 1000012/1000012     std::__detail::_List_node_base* std::__addressof<std::__detail::_List_node_base>(std::__detail::_List_node_base&) [96]
+-----------------------------------------------
+                0.06    0.43 18714737/18714737     void std::__detail::_Scratch_list::merge<std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void> >(std::__detail::_List_node_base&, std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>) [4]
+[5]     34.0    0.06    0.43 18714737         std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>::operator()(std::__detail::_List_node_base*, std::__detail::_List_node_base*) const [5]
+                0.23    0.00 18714737/18714737     common::Point::operator<(common::Point const&) const [6]
+                0.08    0.08 37429474/49429390     std::_List_iterator<common::Point>::operator*() const [8]
+                0.04    0.00 37429474/61429329     std::_List_iterator<common::Point>::_List_iterator(std::__detail::_List_node_base*) [20]
+-----------------------------------------------
+                0.23    0.00 18714737/18714737     std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>::operator()(std::__detail::_List_node_base*, std::__detail::_List_node_base*) const [5]
+[6]     15.9    0.23    0.00 18714737         common::Point::operator<(common::Point const&) const [6]
+-----------------------------------------------
+                0.22    0.00 3999958/3999958     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[7]     15.2    0.22    0.00 3999958         common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >)::{lambda(common::Point const&, common::Point const&, common::Point const&)#1}::operator()(common::Point const&, common::Point const&, common::Point const&) const [7]
+-----------------------------------------------
+                0.00    0.00 1000000/49429390     std::reverse_iterator<std::_List_iterator<common::Point> >::operator*() const [57]
+                0.00    0.00 2000000/49429390     std::__cxx11::list<common::Point, std::allocator<common::Point> >::back() [37]
+                0.02    0.02 8999916/49429390     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+                0.08    0.08 37429474/49429390     std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>::operator()(std::__detail::_List_node_base*, std::__detail::_List_node_base*) const [5]
+[8]     14.6    0.10    0.11 49429390         std::_List_iterator<common::Point>::operator*() const [8]
+                0.04    0.07 49429390/57429390     std::_List_node<common::Point>::_M_valptr() [9]
+-----------------------------------------------
+                0.00    0.00 1000000/57429390     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+                0.00    0.00 1999964/57429390     std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_erase(std::_List_iterator<common::Point>) [31]
+                0.00    0.00 2000036/57429390     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_clear() [15]
+                0.00    0.00 3000000/57429390     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+                0.04    0.07 49429390/57429390     std::_List_iterator<common::Point>::operator*() const [8]
+[9]      9.0    0.05    0.08 57429390         std::_List_node<common::Point>::_M_valptr() [9]
+                0.03    0.05 57429390/57429390     __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr() [18]
+-----------------------------------------------
+                0.00    0.10 2000000/2000000     main [1]
+[10]     6.9    0.00    0.10 2000000         double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [10]
+                0.00    0.10 2000000/2000000     double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_real_distribution<double>::param_type const&) [11]
+-----------------------------------------------
+                0.00    0.10 2000000/2000000     double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [10]
+[11]     6.9    0.00    0.10 2000000         double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_real_distribution<double>::param_type const&) [11]
+                0.00    0.10 2000000/2000000     std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>, double>::operator()() [12]
+                0.00    0.00 4000000/4000000     std::uniform_real_distribution<double>::param_type::a() const [78]
+                0.00    0.00 2000000/2000000     std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>, double>::_Adaptor(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [88]
+                0.00    0.00 2000000/2000000     std::uniform_real_distribution<double>::param_type::b() const [87]
+-----------------------------------------------
+                0.00    0.10 2000000/2000000     double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_real_distribution<double>::param_type const&) [11]
+[12]     6.9    0.00    0.10 2000000         std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>, double>::operator()() [12]
+                0.08    0.02 2000000/2000000     double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [13]
+-----------------------------------------------
+                0.08    0.02 2000000/2000000     std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>, double>::operator()() [12]
+[13]     6.9    0.08    0.02 2000000         double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [13]
+                0.00    0.02 4000000/4000000     std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()() [40]
+                0.00    0.00 4000000/4000000     std::log(long double) [84]
+                0.00    0.00 4000000/4000000     std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::min() [82]
+                0.00    0.00 2000000/2000000     unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [89]
+-----------------------------------------------
+                0.01    0.08 1999982/1999982     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[14]     6.5    0.01    0.08 1999982         long std::__distance<common::Point>(std::_List_iterator<common::Point>, std::_List_iterator<common::Point>, std::input_iterator_tag) [14]
+                0.01    0.06 1999982/1999982     long std::__distance<common::Point>(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::input_iterator_tag) [19]
+                0.01    0.00 3999964/7999928     std::_List_const_iterator<common::Point>::_List_const_iterator(std::_List_iterator<common::Point> const&) [49]
+-----------------------------------------------
+                0.08    0.01       4/4           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::~_List_base() [16]
+[15]     6.2    0.08    0.01       4         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_clear() [15]
+                0.01    0.00 2000036/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_put_node(std::_List_node<common::Point>*) [53]
+                0.00    0.00 2000036/57429390     std::_List_node<common::Point>::_M_valptr() [9]
+                0.00    0.00 2000036/8000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() [77]
+-----------------------------------------------
+                0.00    0.09       4/4           std::__cxx11::list<common::Point, std::allocator<common::Point> >::~list() [17]
+[16]     6.2    0.00    0.09       4         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::~_List_base() [16]
+                0.08    0.01       4/4           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_clear() [15]
+                0.00    0.00       4/4           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::~_List_impl() [112]
+-----------------------------------------------
+                0.00    0.02       1/4           std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+                0.00    0.07       3/4           main [1]
+[17]     6.2    0.00    0.09       4         std::__cxx11::list<common::Point, std::allocator<common::Point> >::~list() [17]
+                0.00    0.09       4/4           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::~_List_base() [16]
+-----------------------------------------------
+                0.03    0.05 57429390/57429390     std::_List_node<common::Point>::_M_valptr() [9]
+[18]     5.5    0.03    0.05 57429390         __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr() [18]
+                0.05    0.00 57429390/57429390     __gnu_cxx::__aligned_membuf<common::Point>::_M_addr() [24]
+-----------------------------------------------
+                0.01    0.06 1999982/1999982     long std::__distance<common::Point>(std::_List_iterator<common::Point>, std::_List_iterator<common::Point>, std::input_iterator_tag) [14]
+[19]     5.1    0.01    0.06 1999982         long std::__distance<common::Point>(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::input_iterator_tag) [19]
+                0.03    0.00 35611699/36611736     std::operator!=(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&) [34]
+                0.02    0.00 35611699/36611770     std::_List_const_iterator<common::Point>::operator++() [43]
+                0.01    0.00 1999982/1999982     std::operator==(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&) [54]
+-----------------------------------------------
+                0.00    0.00 1999964/61429329     std::__cxx11::list<common::Point, std::allocator<common::Point> >::erase(std::_List_const_iterator<common::Point>) [25]
+                0.00    0.00 2000000/61429329     std::__cxx11::list<common::Point, std::allocator<common::Point> >::insert(std::_List_const_iterator<common::Point>, common::Point const&) [30]
+                0.00    0.00 3999964/61429329     std::_List_const_iterator<common::Point>::_M_const_cast() const [63]
+                0.00    0.00 3999984/61429329     std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() [62]
+                0.01    0.00 11999943/61429329     std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() [26]
+                0.04    0.00 37429474/61429329     std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>::operator()(std::__detail::_List_node_base*, std::__detail::_List_node_base*) const [5]
+[20]     4.8    0.07    0.00 61429329         std::_List_iterator<common::Point>::_List_iterator(std::__detail::_List_node_base*) [20]
+-----------------------------------------------
+                0.00    0.05 1000000/1000000     main [1]
+[21]     3.7    0.00    0.05 1000000         common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<double, double>(double&&, double&&) [21]
+                0.00    0.03 1000000/1000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<double, double>(std::_List_iterator<common::Point>, double&&, double&&) [32]
+                0.00    0.01 1000000/2000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::back() [37]
+                0.00    0.00 2000000/10000000     double&& std::forward<double>(std::remove_reference<double>::type&) [39]
+                0.00    0.00 1000000/11999943     std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() [26]
+-----------------------------------------------
+                0.02    0.03       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [23]
+[22]     3.7    0.02    0.03       1         void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_initialize_dispatch<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::__false_type) [22]
+                0.00    0.03 1000000/1000000     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<common::Point const&>(common::Point const&) [33]
+                0.00    0.00 1000001/36611736     std::operator!=(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&) [34]
+                0.00    0.00 1000000/36611770     std::_List_const_iterator<common::Point>::operator++() [43]
+                0.00    0.00 1000000/1000000     std::_List_const_iterator<common::Point>::operator*() const [103]
+-----------------------------------------------
+                0.00    0.05       1/1           main [1]
+[23]     3.7    0.00    0.05       1         std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [23]
+                0.02    0.03       1/1           void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_initialize_dispatch<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::__false_type) [22]
+                0.00    0.00       1/1           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() const [123]
+                0.00    0.00       1/1           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::allocator<std::_List_node<common::Point> >&&) [128]
+                0.00    0.00       1/5           std::__new_allocator<std::_List_node<common::Point> >::~__new_allocator() [110]
+                0.00    0.00       1/39          std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() const [109]
+                0.00    0.00       1/4           std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() const [111]
+-----------------------------------------------
+                0.05    0.00 57429390/57429390     __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr() [18]
+[24]     3.4    0.05    0.00 57429390         __gnu_cxx::__aligned_membuf<common::Point>::_M_addr() [24]
+-----------------------------------------------
+                0.01    0.04 1999964/1999964     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[25]     3.4    0.01    0.04 1999964         std::__cxx11::list<common::Point, std::allocator<common::Point> >::erase(std::_List_const_iterator<common::Point>) [25]
+                0.03    0.01 1999964/1999964     std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_erase(std::_List_iterator<common::Point>) [31]
+                0.00    0.00 1999964/61429329     std::_List_iterator<common::Point>::_List_iterator(std::__detail::_List_node_base*) [20]
+                0.00    0.00 1999964/3999964     std::_List_const_iterator<common::Point>::_M_const_cast() const [63]
+-----------------------------------------------
+                0.00    0.00       1/11999943     std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() [68]
+                0.00    0.00 1000000/11999943     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<double, double>(double&&, double&&) [21]
+                0.00    0.00 1000000/11999943     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<common::Point const&>(common::Point const&) [33]
+                0.01    0.00 2000000/11999943     std::__cxx11::list<common::Point, std::allocator<common::Point> >::back() [37]
+                0.02    0.01 7999942/11999943     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[26]     3.0    0.03    0.01 11999943         std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() [26]
+                0.01    0.00 11999943/61429329     std::_List_iterator<common::Point>::_List_iterator(std::__detail::_List_node_base*) [20]
+-----------------------------------------------
+                0.01    0.03 7999917/7999917     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[27]     2.9    0.01    0.03 7999917         void std::__advance<std::_List_iterator<common::Point>, long>(std::_List_iterator<common::Point>&, long, std::bidirectional_iterator_tag) [27]
+                0.03    0.00 7999917/11999917     std::_List_iterator<common::Point>::operator--() [28]
+-----------------------------------------------
+                0.00    0.00 1000000/11999917     std::reverse_iterator<std::_List_iterator<common::Point> >::operator*() const [57]
+                0.00    0.00 1000000/11999917     std::reverse_iterator<std::_List_iterator<common::Point> >::operator++() [64]
+                0.01    0.00 2000000/11999917     std::__cxx11::list<common::Point, std::allocator<common::Point> >::back() [37]
+                0.03    0.00 7999917/11999917     void std::__advance<std::_List_iterator<common::Point>, long>(std::_List_iterator<common::Point>&, long, std::bidirectional_iterator_tag) [27]
+[28]     2.8    0.04    0.00 11999917         std::_List_iterator<common::Point>::operator--() [28]
+-----------------------------------------------
+                0.00    0.01 1000000/3000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<common::Point const&>(std::_List_iterator<common::Point>, common::Point const&) [44]
+                0.01    0.02 2000000/3000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::insert(std::_List_const_iterator<common::Point>, common::Point const&) [30]
+[29]     2.7    0.01    0.03 3000000         std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+                0.01    0.00 3000000/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_node() [52]
+                0.01    0.00 3000000/4000000     std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::__allocated_ptr(std::allocator<std::_List_node<common::Point> >&, std::_List_node<common::Point>*) [50]
+                0.01    0.00 3000000/4000000     std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::operator=(decltype(nullptr)) [51]
+                0.00    0.00 3000000/57429390     std::_List_node<common::Point>::_M_valptr() [9]
+                0.00    0.00 9000000/11000000     common::Point const& std::forward<common::Point const&>(std::remove_reference<common::Point const&>::type&) [76]
+                0.00    0.00 3000000/8000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() [77]
+                0.00    0.00 3000000/4000000     operator new(unsigned long, void*) [85]
+                0.00    0.00 3000000/4000000     std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::~__allocated_ptr() [79]
+-----------------------------------------------
+                0.00    0.04 2000000/2000000     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[30]     2.6    0.00    0.04 2000000         std::__cxx11::list<common::Point, std::allocator<common::Point> >::insert(std::_List_const_iterator<common::Point>, common::Point const&) [30]
+                0.01    0.02 2000000/3000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+                0.01    0.00 2000000/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_inc_size(unsigned long) [45]
+                0.00    0.00 2000000/61429329     std::_List_iterator<common::Point>::_List_iterator(std::__detail::_List_node_base*) [20]
+                0.00    0.00 2000000/3999964     std::_List_const_iterator<common::Point>::_M_const_cast() const [63]
+-----------------------------------------------
+                0.03    0.01 1999964/1999964     std::__cxx11::list<common::Point, std::allocator<common::Point> >::erase(std::_List_const_iterator<common::Point>) [25]
+[31]     2.4    0.03    0.01 1999964         std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_erase(std::_List_iterator<common::Point>) [31]
+                0.00    0.00 1999964/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_put_node(std::_List_node<common::Point>*) [53]
+                0.00    0.00 1999964/57429390     std::_List_node<common::Point>::_M_valptr() [9]
+                0.00    0.00 1999964/1999964     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_dec_size(unsigned long) [92]
+                0.00    0.00 1999964/8000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() [77]
+-----------------------------------------------
+                0.00    0.03 1000000/1000000     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<double, double>(double&&, double&&) [21]
+[32]     2.4    0.00    0.03 1000000         void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<double, double>(std::_List_iterator<common::Point>, double&&, double&&) [32]
+                0.01    0.02 1000000/1000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+                0.00    0.00 2000000/10000000     double&& std::forward<double>(std::remove_reference<double>::type&) [39]
+                0.00    0.00 1000000/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_inc_size(unsigned long) [45]
+-----------------------------------------------
+                0.00    0.03 1000000/1000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_initialize_dispatch<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::__false_type) [22]
+[33]     2.2    0.00    0.03 1000000         common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<common::Point const&>(common::Point const&) [33]
+                0.00    0.02 1000000/1000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<common::Point const&>(std::_List_iterator<common::Point>, common::Point const&) [44]
+                0.00    0.01 1000000/2000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::back() [37]
+                0.00    0.00 1000000/11999943     std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() [26]
+                0.00    0.00 1000000/11000000     common::Point const& std::forward<common::Point const&>(std::remove_reference<common::Point const&>::type&) [76]
+-----------------------------------------------
+                0.00    0.00      36/36611736     double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+                0.00    0.00 1000001/36611736     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_initialize_dispatch<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::__false_type) [22]
+                0.03    0.00 35611699/36611736     long std::__distance<common::Point>(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::input_iterator_tag) [19]
+[34]     2.1    0.03    0.00 36611736         std::operator!=(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&) [34]
+-----------------------------------------------
+                0.03    0.00 1000000/1000000     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[35]     2.1    0.03    0.00 1000000         std::_List_iterator<common::Point>::operator++() [35]
+-----------------------------------------------
+                0.01    0.02 1000000/1000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<double, double>(std::_List_iterator<common::Point>, double&&, double&&) [32]
+[36]     1.8    0.01    0.02 1000000         std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+                0.01    0.00 6000000/10000000     double&& std::forward<double>(std::remove_reference<double>::type&) [39]
+                0.00    0.00 1000000/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_node() [52]
+                0.00    0.00 1000000/4000000     std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::__allocated_ptr(std::allocator<std::_List_node<common::Point> >&, std::_List_node<common::Point>*) [50]
+                0.00    0.00 1000000/4000000     std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::operator=(decltype(nullptr)) [51]
+                0.00    0.00 1000000/57429390     std::_List_node<common::Point>::_M_valptr() [9]
+                0.00    0.00 1000000/8000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() [77]
+                0.00    0.00 1000000/4000000     operator new(unsigned long, void*) [85]
+                0.00    0.00 1000000/1000000     common::Point::Point(double, double) [102]
+                0.00    0.00 1000000/4000000     std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::~__allocated_ptr() [79]
+-----------------------------------------------
+                0.00    0.01 1000000/2000000     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<double, double>(double&&, double&&) [21]
+                0.00    0.01 1000000/2000000     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<common::Point const&>(common::Point const&) [33]
+[37]     1.6    0.00    0.02 2000000         std::__cxx11::list<common::Point, std::allocator<common::Point> >::back() [37]
+                0.00    0.00 2000000/49429390     std::_List_iterator<common::Point>::operator*() const [8]
+                0.01    0.00 2000000/11999943     std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() [26]
+                0.01    0.00 2000000/11999917     std::_List_iterator<common::Point>::operator--() [28]
+-----------------------------------------------
+                0.00    0.02       1/1           main [1]
+[38]     1.4    0.00    0.02       1         double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+                0.02    0.00     142/144         std::_List_const_iterator<common::Point>::operator->() const [42]
+                0.00    0.00       2/2           std::reverse_iterator<std::_List_const_iterator<common::Point> >::operator->() const [66]
+                0.00    0.00      70/36611770     std::_List_const_iterator<common::Point>::operator++() [43]
+                0.00    0.00      36/36611736     std::operator!=(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&) [34]
+                0.00    0.00       1/1999986     std::__cxx11::list<common::Point, std::allocator<common::Point> >::size() const [48]
+                0.00    0.00       1/1           void std::__advance<std::_List_const_iterator<common::Point>, long>(std::_List_const_iterator<common::Point>&, long, std::bidirectional_iterator_tag) [69]
+                0.00    0.00      36/39          std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() const [109]
+                0.00    0.00       3/4           std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() const [111]
+                0.00    0.00       2/2           std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() const [116]
+                0.00    0.00       1/1           std::abs(double) [133]
+-----------------------------------------------
+                0.00    0.00 2000000/10000000     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<double, double>(double&&, double&&) [21]
+                0.00    0.00 2000000/10000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<double, double>(std::_List_iterator<common::Point>, double&&, double&&) [32]
+                0.01    0.00 6000000/10000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+[39]     1.4    0.02    0.00 10000000         double&& std::forward<double>(std::remove_reference<double>::type&) [39]
+-----------------------------------------------
+                0.00    0.02 4000000/4000000     double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [13]
+[40]     1.4    0.00    0.02 4000000         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()() [40]
+                0.02    0.00    6411/6411        std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand() [41]
+-----------------------------------------------
+                0.02    0.00    6411/6411        std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()() [40]
+[41]     1.4    0.02    0.00    6411         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand() [41]
+-----------------------------------------------
+                0.00    0.00       2/144         common::Point const* std::reverse_iterator<std::_List_const_iterator<common::Point> >::_S_to_pointer<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>) [67]
+                0.02    0.00     142/144         double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+[42]     1.4    0.02    0.00     144         std::_List_const_iterator<common::Point>::operator->() const [42]
+                0.00    0.00     144/1000144     std::_List_node<common::Point>::_M_valptr() const [95]
+-----------------------------------------------
+                0.00    0.00       1/36611770     void std::__advance<std::_List_const_iterator<common::Point>, long>(std::_List_const_iterator<common::Point>&, long, std::bidirectional_iterator_tag) [69]
+                0.00    0.00      70/36611770     double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+                0.00    0.00 1000000/36611770     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_initialize_dispatch<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::__false_type) [22]
+                0.02    0.00 35611699/36611770     long std::__distance<common::Point>(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::input_iterator_tag) [19]
+[43]     1.4    0.02    0.00 36611770         std::_List_const_iterator<common::Point>::operator++() [43]
+-----------------------------------------------
+                0.00    0.02 1000000/1000000     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<common::Point const&>(common::Point const&) [33]
+[44]     1.2    0.00    0.02 1000000         void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<common::Point const&>(std::_List_iterator<common::Point>, common::Point const&) [44]
+                0.00    0.01 1000000/3000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+                0.00    0.00 1000000/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_inc_size(unsigned long) [45]
+                0.00    0.00 1000000/11000000     common::Point const& std::forward<common::Point const&>(std::remove_reference<common::Point const&>::type&) [76]
+-----------------------------------------------
+                0.00    0.00 1000000/4000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<double, double>(std::_List_iterator<common::Point>, double&&, double&&) [32]
+                0.00    0.00 1000000/4000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<common::Point const&>(std::_List_iterator<common::Point>, common::Point const&) [44]
+                0.01    0.00 2000000/4000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::insert(std::_List_const_iterator<common::Point>, common::Point const&) [30]
+[45]     1.0    0.01    0.00 4000000         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_inc_size(unsigned long) [45]
+-----------------------------------------------
+                0.01    0.00 1999986/1999986     std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_node_count() const [47]
+[46]     1.0    0.01    0.00 1999986         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_size() const [46]
+-----------------------------------------------
+                0.00    0.01 1999986/1999986     std::__cxx11::list<common::Point, std::allocator<common::Point> >::size() const [48]
+[47]     1.0    0.00    0.01 1999986         std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_node_count() const [47]
+                0.01    0.00 1999986/1999986     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_size() const [46]
+-----------------------------------------------
+                0.00    0.00       1/1999986     main [1]
+                0.00    0.00       1/1999986     double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+                0.00    0.01 1999984/1999986     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[48]     1.0    0.00    0.01 1999986         std::__cxx11::list<common::Point, std::allocator<common::Point> >::size() const [48]
+                0.00    0.01 1999986/1999986     std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_node_count() const [47]
+-----------------------------------------------
+                0.01    0.00 3999964/7999928     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+                0.01    0.00 3999964/7999928     long std::__distance<common::Point>(std::_List_iterator<common::Point>, std::_List_iterator<common::Point>, std::input_iterator_tag) [14]
+[49]     0.7    0.01    0.00 7999928         std::_List_const_iterator<common::Point>::_List_const_iterator(std::_List_iterator<common::Point> const&) [49]
+-----------------------------------------------
+                0.00    0.00 1000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+                0.01    0.00 3000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+[50]     0.7    0.01    0.00 4000000         std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::__allocated_ptr(std::allocator<std::_List_node<common::Point> >&, std::_List_node<common::Point>*) [50]
+                0.00    0.00 4000000/4000000     std::allocator<std::_List_node<common::Point> >* std::__addressof<std::allocator<std::_List_node<common::Point> > >(std::allocator<std::_List_node<common::Point> >&) [83]
+-----------------------------------------------
+                0.00    0.00 1000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+                0.01    0.00 3000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+[51]     0.7    0.01    0.00 4000000         std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::operator=(decltype(nullptr)) [51]
+-----------------------------------------------
+                0.00    0.00 1000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+                0.01    0.00 3000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+[52]     0.7    0.01    0.00 4000000         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_node() [52]
+                0.00    0.00 4000000/4000000     std::__new_allocator<std::_List_node<common::Point> >::allocate(unsigned long, void const*) [81]
+-----------------------------------------------
+                0.00    0.00 1999964/4000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_erase(std::_List_iterator<common::Point>) [31]
+                0.01    0.00 2000036/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_clear() [15]
+[53]     0.7    0.01    0.00 4000000         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_put_node(std::_List_node<common::Point>*) [53]
+                0.00    0.00 4000000/4000000     std::__new_allocator<std::_List_node<common::Point> >::deallocate(std::_List_node<common::Point>*, unsigned long) [80]
+-----------------------------------------------
+                0.01    0.00 1999982/1999982     long std::__distance<common::Point>(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::input_iterator_tag) [19]
+[54]     0.7    0.01    0.00 1999982         std::operator==(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&) [54]
+-----------------------------------------------
+                0.01    0.00 1000000/1000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [3]
+[55]     0.7    0.01    0.00 1000000         std::__detail::_Scratch_list::_M_take_one(std::__detail::_List_node_base*) [55]
+-----------------------------------------------
+                                                 <spontaneous>
+[56]     0.7    0.01    0.00                 _init [56]
+-----------------------------------------------
+                0.00    0.01 1000000/1000000     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[57]     0.5    0.00    0.01 1000000         std::reverse_iterator<std::_List_iterator<common::Point> >::operator*() const [57]
+                0.00    0.00 1000000/49429390     std::_List_iterator<common::Point>::operator*() const [8]
+                0.00    0.00 1000000/11999917     std::_List_iterator<common::Point>::operator--() [28]
+-----------------------------------------------
+                0.01    0.00     624/624         unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long) [59]
+[58]     0.3    0.01    0.00     624         std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long) [58]
+-----------------------------------------------
+                0.00    0.01     624/624         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [60]
+[59]     0.3    0.00    0.01     624         unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long) [59]
+                0.01    0.00     624/624         std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long) [58]
+-----------------------------------------------
+                0.00    0.01       1/1           std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [61]
+[60]     0.3    0.00    0.01       1         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [60]
+                0.00    0.01     624/624         unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long) [59]
+                0.00    0.00     623/623         unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long) [106]
+-----------------------------------------------
+                0.00    0.01       1/1           main [1]
+[61]     0.3    0.00    0.01       1         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [61]
+                0.00    0.01       1/1           std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [60]
+-----------------------------------------------
+                0.00    0.00 1000000/3999984     std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [3]
+                0.00    0.00 1000001/3999984     std::__cxx11::list<common::Point, std::allocator<common::Point> >::rend() [65]
+                0.00    0.00 1999983/3999984     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[62]     0.3    0.00    0.00 3999984         std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() [62]
+                0.00    0.00 3999984/61429329     std::_List_iterator<common::Point>::_List_iterator(std::__detail::_List_node_base*) [20]
+-----------------------------------------------
+                0.00    0.00 1999964/3999964     std::__cxx11::list<common::Point, std::allocator<common::Point> >::erase(std::_List_const_iterator<common::Point>) [25]
+                0.00    0.00 2000000/3999964     std::__cxx11::list<common::Point, std::allocator<common::Point> >::insert(std::_List_const_iterator<common::Point>, common::Point const&) [30]
+[63]     0.3    0.00    0.00 3999964         std::_List_const_iterator<common::Point>::_M_const_cast() const [63]
+                0.00    0.00 3999964/61429329     std::_List_iterator<common::Point>::_List_iterator(std::__detail::_List_node_base*) [20]
+-----------------------------------------------
+                0.00    0.00 1000000/1000000     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[64]     0.2    0.00    0.00 1000000         std::reverse_iterator<std::_List_iterator<common::Point> >::operator++() [64]
+                0.00    0.00 1000000/11999917     std::_List_iterator<common::Point>::operator--() [28]
+-----------------------------------------------
+                0.00    0.00 1000001/1000001     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[65]     0.1    0.00    0.00 1000001         std::__cxx11::list<common::Point, std::allocator<common::Point> >::rend() [65]
+                0.00    0.00 1000001/3999984     std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() [62]
+                0.00    0.00 1000001/1000002     std::reverse_iterator<std::_List_iterator<common::Point> >::reverse_iterator(std::_List_iterator<common::Point>) [97]
+-----------------------------------------------
+                0.00    0.00       2/2           double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+[66]     0.0    0.00    0.00       2         std::reverse_iterator<std::_List_const_iterator<common::Point> >::operator->() const [66]
+                0.00    0.00       2/2           common::Point const* std::reverse_iterator<std::_List_const_iterator<common::Point> >::_S_to_pointer<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>) [67]
+                0.00    0.00       2/2           std::_List_const_iterator<common::Point>::operator--() [118]
+-----------------------------------------------
+                0.00    0.00       2/2           std::reverse_iterator<std::_List_const_iterator<common::Point> >::operator->() const [66]
+[67]     0.0    0.00    0.00       2         common::Point const* std::reverse_iterator<std::_List_const_iterator<common::Point> >::_S_to_pointer<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>) [67]
+                0.00    0.00       2/144         std::_List_const_iterator<common::Point>::operator->() const [42]
+-----------------------------------------------
+                0.00    0.00       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[68]     0.0    0.00    0.00       1         std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() [68]
+                0.00    0.00       1/11999943     std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() [26]
+                0.00    0.00       1/1000002     std::reverse_iterator<std::_List_iterator<common::Point> >::reverse_iterator(std::_List_iterator<common::Point>) [97]
+-----------------------------------------------
+                0.00    0.00       1/1           double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+[69]     0.0    0.00    0.00       1         void std::__advance<std::_List_const_iterator<common::Point>, long>(std::_List_const_iterator<common::Point>&, long, std::bidirectional_iterator_tag) [69]
+                0.00    0.00       1/36611770     std::_List_const_iterator<common::Point>::operator++() [43]
+-----------------------------------------------
+                0.00    0.00 1000000/11000000     common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<common::Point const&>(common::Point const&) [33]
+                0.00    0.00 1000000/11000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<common::Point const&>(std::_List_iterator<common::Point>, common::Point const&) [44]
+                0.00    0.00 9000000/11000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+[76]     0.0    0.00    0.00 11000000         common::Point const& std::forward<common::Point const&>(std::remove_reference<common::Point const&>::type&) [76]
+-----------------------------------------------
+                0.00    0.00 1000000/8000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+                0.00    0.00 1999964/8000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_erase(std::_List_iterator<common::Point>) [31]
+                0.00    0.00 2000036/8000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_clear() [15]
+                0.00    0.00 3000000/8000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+[77]     0.0    0.00    0.00 8000000         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() [77]
+-----------------------------------------------
+                0.00    0.00 4000000/4000000     double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_real_distribution<double>::param_type const&) [11]
+[78]     0.0    0.00    0.00 4000000         std::uniform_real_distribution<double>::param_type::a() const [78]
+-----------------------------------------------
+                0.00    0.00 1000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+                0.00    0.00 3000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+[79]     0.0    0.00    0.00 4000000         std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::~__allocated_ptr() [79]
+-----------------------------------------------
+                0.00    0.00 4000000/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_put_node(std::_List_node<common::Point>*) [53]
+[80]     0.0    0.00    0.00 4000000         std::__new_allocator<std::_List_node<common::Point> >::deallocate(std::_List_node<common::Point>*, unsigned long) [80]
+-----------------------------------------------
+                0.00    0.00 4000000/4000000     std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_node() [52]
+[81]     0.0    0.00    0.00 4000000         std::__new_allocator<std::_List_node<common::Point> >::allocate(unsigned long, void const*) [81]
+-----------------------------------------------
+                0.00    0.00 4000000/4000000     double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [13]
+[82]     0.0    0.00    0.00 4000000         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::min() [82]
+-----------------------------------------------
+                0.00    0.00 4000000/4000000     std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::__allocated_ptr(std::allocator<std::_List_node<common::Point> >&, std::_List_node<common::Point>*) [50]
+[83]     0.0    0.00    0.00 4000000         std::allocator<std::_List_node<common::Point> >* std::__addressof<std::allocator<std::_List_node<common::Point> > >(std::allocator<std::_List_node<common::Point> >&) [83]
+-----------------------------------------------
+                0.00    0.00 4000000/4000000     double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [13]
+[84]     0.0    0.00    0.00 4000000         std::log(long double) [84]
+-----------------------------------------------
+                0.00    0.00 1000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+                0.00    0.00 3000000/4000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [29]
+[85]     0.0    0.00    0.00 4000000         operator new(unsigned long, void*) [85]
+-----------------------------------------------
+                0.00    0.00 2000002/2000002     bool std::operator==<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&) [98]
+[86]     0.0    0.00    0.00 2000002         std::reverse_iterator<std::_List_iterator<common::Point> >::base() const [86]
+-----------------------------------------------
+                0.00    0.00 2000000/2000000     double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_real_distribution<double>::param_type const&) [11]
+[87]     0.0    0.00    0.00 2000000         std::uniform_real_distribution<double>::param_type::b() const [87]
+-----------------------------------------------
+                0.00    0.00 2000000/2000000     double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_real_distribution<double>::param_type const&) [11]
+[88]     0.0    0.00    0.00 2000000         std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>, double>::_Adaptor(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [88]
+-----------------------------------------------
+                0.00    0.00 2000000/2000000     double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [13]
+[89]     0.0    0.00    0.00 2000000         unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [89]
+-----------------------------------------------
+                0.00    0.00 1999994/1999994     std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [3]
+[90]     0.0    0.00    0.00 1999994         std::__detail::_Scratch_list::swap(std::__detail::_List_node_base&) [90]
+-----------------------------------------------
+                0.00    0.00 1999973/1999973     std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [3]
+[91]     0.0    0.00    0.00 1999973         std::__detail::_Scratch_list::empty() const [91]
+-----------------------------------------------
+                0.00    0.00 1999964/1999964     std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_erase(std::_List_iterator<common::Point>) [31]
+[92]     0.0    0.00    0.00 1999964         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_dec_size(unsigned long) [92]
+-----------------------------------------------
+                0.00    0.00 1000144/1000144     std::_List_node<common::Point>::_M_valptr() const [95]
+[93]     0.0    0.00    0.00 1000144         __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr() const [93]
+                0.00    0.00 1000144/1000144     __gnu_cxx::__aligned_membuf<common::Point>::_M_addr() const [94]
+-----------------------------------------------
+                0.00    0.00 1000144/1000144     __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr() const [93]
+[94]     0.0    0.00    0.00 1000144         __gnu_cxx::__aligned_membuf<common::Point>::_M_addr() const [94]
+-----------------------------------------------
+                0.00    0.00     144/1000144     std::_List_const_iterator<common::Point>::operator->() const [42]
+                0.00    0.00 1000000/1000144     std::_List_const_iterator<common::Point>::operator*() const [103]
+[95]     0.0    0.00    0.00 1000144         std::_List_node<common::Point>::_M_valptr() const [95]
+                0.00    0.00 1000144/1000144     __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr() const [93]
+-----------------------------------------------
+                0.00    0.00 1000012/1000012     void std::__detail::_Scratch_list::merge<std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void> >(std::__detail::_List_node_base&, std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>) [4]
+[96]     0.0    0.00    0.00 1000012         std::__detail::_List_node_base* std::__addressof<std::__detail::_List_node_base>(std::__detail::_List_node_base&) [96]
+-----------------------------------------------
+                0.00    0.00       1/1000002     std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() [68]
+                0.00    0.00 1000001/1000002     std::__cxx11::list<common::Point, std::allocator<common::Point> >::rend() [65]
+[97]     0.0    0.00    0.00 1000002         std::reverse_iterator<std::_List_iterator<common::Point> >::reverse_iterator(std::_List_iterator<common::Point>) [97]
+-----------------------------------------------
+                0.00    0.00 1000001/1000001     bool std::operator!=<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&) [100]
+[98]     0.0    0.00    0.00 1000001         bool std::operator==<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&) [98]
+                0.00    0.00 2000002/2000002     std::reverse_iterator<std::_List_iterator<common::Point> >::base() const [86]
+                0.00    0.00 1000001/1000001     std::operator==(std::_List_iterator<common::Point> const&, std::_List_iterator<common::Point> const&) [99]
+-----------------------------------------------
+                0.00    0.00 1000001/1000001     bool std::operator==<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&) [98]
+[99]     0.0    0.00    0.00 1000001         std::operator==(std::_List_iterator<common::Point> const&, std::_List_iterator<common::Point> const&) [99]
+-----------------------------------------------
+                0.00    0.00 1000001/1000001     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[100]    0.0    0.00    0.00 1000001         bool std::operator!=<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&) [100]
+                0.00    0.00 1000001/1000001     bool std::operator==<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&) [98]
+-----------------------------------------------
+                0.00    0.00 1000001/1000001     std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[101]    0.0    0.00    0.00 1000001         std::operator!=(std::_List_iterator<common::Point> const&, std::_List_iterator<common::Point> const&) [101]
+-----------------------------------------------
+                0.00    0.00 1000000/1000000     std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [36]
+[102]    0.0    0.00    0.00 1000000         common::Point::Point(double, double) [102]
+-----------------------------------------------
+                0.00    0.00 1000000/1000000     void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_initialize_dispatch<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::__false_type) [22]
+[103]    0.0    0.00    0.00 1000000         std::_List_const_iterator<common::Point>::operator*() const [103]
+                0.00    0.00 1000000/1000144     std::_List_node<common::Point>::_M_valptr() const [95]
+-----------------------------------------------
+                0.00    0.00 1000000/1000000     std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [3]
+[104]    0.0    0.00    0.00 1000000         std::__cxx11::list<common::Point, std::allocator<common::Point> >::empty() const [104]
+-----------------------------------------------
+                0.00    0.00     623/623         unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long) [106]
+[105]    0.0    0.00    0.00     623         std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long) [105]
+-----------------------------------------------
+                0.00    0.00     623/623         std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [60]
+[106]    0.0    0.00    0.00     623         unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long) [106]
+                0.00    0.00     623/623         std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long) [105]
+-----------------------------------------------
+                0.00    0.00      65/65          std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [3]
+[107]    0.0    0.00    0.00      65         std::__detail::_Scratch_list::_Scratch_list() [107]
+-----------------------------------------------
+                0.00    0.00       4/43          std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() const [111]
+                0.00    0.00      39/43          std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() const [109]
+[108]    0.0    0.00    0.00      43         std::_List_const_iterator<common::Point>::_List_const_iterator(std::__detail::_List_node_base const*) [108]
+-----------------------------------------------
+                0.00    0.00       1/39          std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [23]
+                0.00    0.00       2/39          std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() const [116]
+                0.00    0.00      36/39          double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+[109]    0.0    0.00    0.00      39         std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() const [109]
+                0.00    0.00      39/43          std::_List_const_iterator<common::Point>::_List_const_iterator(std::__detail::_List_node_base const*) [108]
+-----------------------------------------------
+                0.00    0.00       1/5           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [23]
+                0.00    0.00       4/5           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::~_List_impl() [112]
+[110]    0.0    0.00    0.00       5         std::__new_allocator<std::_List_node<common::Point> >::~__new_allocator() [110]
+-----------------------------------------------
+                0.00    0.00       1/4           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [23]
+                0.00    0.00       3/4           double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+[111]    0.0    0.00    0.00       4         std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() const [111]
+                0.00    0.00       4/43          std::_List_const_iterator<common::Point>::_List_const_iterator(std::__detail::_List_node_base const*) [108]
+-----------------------------------------------
+                0.00    0.00       4/4           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::~_List_base() [16]
+[112]    0.0    0.00    0.00       4         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::~_List_impl() [112]
+                0.00    0.00       4/5           std::__new_allocator<std::_List_node<common::Point> >::~__new_allocator() [110]
+-----------------------------------------------
+                0.00    0.00       1/4           std::__detail::_List_node_header::_List_node_header(std::__detail::_List_node_header&&) [131]
+                0.00    0.00       3/4           std::__detail::_List_node_header::_List_node_header() [115]
+[113]    0.0    0.00    0.00       4         std::__detail::_List_node_header::_M_init() [113]
+-----------------------------------------------
+                0.00    0.00       3/3           std::__detail::_List_node_header::_List_node_header(std::__detail::_List_node_header&&) [131]
+[114]    0.0    0.00    0.00       3         std::__detail::_List_node_header::_M_base() [114]
+-----------------------------------------------
+                0.00    0.00       1/3           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::allocator<std::_List_node<common::Point> >&&) [127]
+                0.00    0.00       2/3           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl() [119]
+[115]    0.0    0.00    0.00       3         std::__detail::_List_node_header::_List_node_header() [115]
+                0.00    0.00       3/4           std::__detail::_List_node_header::_M_init() [113]
+-----------------------------------------------
+                0.00    0.00       2/2           double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+[116]    0.0    0.00    0.00       2         std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() const [116]
+                0.00    0.00       2/39          std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() const [109]
+                0.00    0.00       2/2           std::reverse_iterator<std::_List_const_iterator<common::Point> >::reverse_iterator(std::_List_const_iterator<common::Point>) [117]
+-----------------------------------------------
+                0.00    0.00       2/2           std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() const [116]
+[117]    0.0    0.00    0.00       2         std::reverse_iterator<std::_List_const_iterator<common::Point> >::reverse_iterator(std::_List_const_iterator<common::Point>) [117]
+-----------------------------------------------
+                0.00    0.00       2/2           std::reverse_iterator<std::_List_const_iterator<common::Point> >::operator->() const [66]
+[118]    0.0    0.00    0.00       2         std::_List_const_iterator<common::Point>::operator--() [118]
+-----------------------------------------------
+                0.00    0.00       2/2           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base() [120]
+[119]    0.0    0.00    0.00       2         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl() [119]
+                0.00    0.00       2/3           std::__detail::_List_node_header::_List_node_header() [115]
+-----------------------------------------------
+                0.00    0.00       2/2           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list() [121]
+[120]    0.0    0.00    0.00       2         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base() [120]
+                0.00    0.00       2/2           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl() [119]
+-----------------------------------------------
+                0.00    0.00       1/2           main [1]
+                0.00    0.00       1/2           std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[121]    0.0    0.00    0.00       2         std::__cxx11::list<common::Point, std::allocator<common::Point> >::list() [121]
+                0.00    0.00       2/2           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base() [120]
+-----------------------------------------------
+                0.00    0.00       1/2           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::allocator<std::_List_node<common::Point> >&&) [128]
+                0.00    0.00       1/2           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::allocator<std::_List_node<common::Point> >&&) [127]
+[122]    0.0    0.00    0.00       2         std::remove_reference<std::allocator<std::_List_node<common::Point> >&>::type&& std::move<std::allocator<std::_List_node<common::Point> >&>(std::allocator<std::_List_node<common::Point> >&) [122]
+-----------------------------------------------
+                0.00    0.00       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [23]
+[123]    0.0    0.00    0.00       1         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() const [123]
+-----------------------------------------------
+                0.00    0.00       1/1           std::uniform_real_distribution<double>::uniform_real_distribution(double, double) [125]
+[124]    0.0    0.00    0.00       1         std::uniform_real_distribution<double>::param_type::param_type(double, double) [124]
+                0.00    0.00       1/1           std::__is_constant_evaluated() [132]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[125]    0.0    0.00    0.00       1         std::uniform_real_distribution<double>::uniform_real_distribution(double, double) [125]
+                0.00    0.00       1/1           std::uniform_real_distribution<double>::param_type::param_type(double, double) [124]
+-----------------------------------------------
+                0.00    0.00       1/1           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >&&) [129]
+[126]    0.0    0.00    0.00       1         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl&&) [126]
+                0.00    0.00       1/1           std::__detail::_List_node_header::_List_node_header(std::__detail::_List_node_header&&) [131]
+-----------------------------------------------
+                0.00    0.00       1/1           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::allocator<std::_List_node<common::Point> >&&) [128]
+[127]    0.0    0.00    0.00       1         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::allocator<std::_List_node<common::Point> >&&) [127]
+                0.00    0.00       1/2           std::remove_reference<std::allocator<std::_List_node<common::Point> >&>::type&& std::move<std::allocator<std::_List_node<common::Point> >&>(std::allocator<std::_List_node<common::Point> >&) [122]
+                0.00    0.00       1/3           std::__detail::_List_node_header::_List_node_header() [115]
+-----------------------------------------------
+                0.00    0.00       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [23]
+[128]    0.0    0.00    0.00       1         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::allocator<std::_List_node<common::Point> >&&) [128]
+                0.00    0.00       1/2           std::remove_reference<std::allocator<std::_List_node<common::Point> >&>::type&& std::move<std::allocator<std::_List_node<common::Point> >&>(std::allocator<std::_List_node<common::Point> >&) [122]
+                0.00    0.00       1/1           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::allocator<std::_List_node<common::Point> >&&) [127]
+-----------------------------------------------
+                0.00    0.00       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> >&&) [130]
+[129]    0.0    0.00    0.00       1         std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >&&) [129]
+                0.00    0.00       1/1           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl&&) [126]
+-----------------------------------------------
+                0.00    0.00       1/1           std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [2]
+[130]    0.0    0.00    0.00       1         std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> >&&) [130]
+                0.00    0.00       1/1           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >&&) [129]
+-----------------------------------------------
+                0.00    0.00       1/1           std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl&&) [126]
+[131]    0.0    0.00    0.00       1         std::__detail::_List_node_header::_List_node_header(std::__detail::_List_node_header&&) [131]
+                0.00    0.00       3/3           std::__detail::_List_node_header::_M_base() [114]
+                0.00    0.00       1/4           std::__detail::_List_node_header::_M_init() [113]
+-----------------------------------------------
+                0.00    0.00       1/1           std::uniform_real_distribution<double>::param_type::param_type(double, double) [124]
+[132]    0.0    0.00    0.00       1         std::__is_constant_evaluated() [132]
+-----------------------------------------------
+                0.00    0.00       1/1           double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [38]
+[133]    0.0    0.00    0.00       1         std::abs(double) [133]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [38] double common::compute_area<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&) [108] std::_List_const_iterator<common::Point>::_List_const_iterator(std::__detail::_List_node_base const*) [32] void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<double, double>(std::_List_iterator<common::Point>, double&&, double&&)
+   [2] std::__cxx11::list<common::Point, std::allocator<common::Point> > common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >) [49] std::_List_const_iterator<common::Point>::_List_const_iterator(std::_List_iterator<common::Point> const&) [130] std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> >&&)
+ [102] common::Point::Point(double, double) [118] std::_List_const_iterator<common::Point>::operator--() [23] std::__cxx11::list<common::Point, std::allocator<common::Point> >::list(std::__cxx11::list<common::Point, std::allocator<common::Point> > const&)
+  [18] __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr() [43] std::_List_const_iterator<common::Point>::operator++() [121] std::__cxx11::list<common::Point, std::allocator<common::Point> >::list()
+  [24] __gnu_cxx::__aligned_membuf<common::Point>::_M_addr() [41] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::_M_gen_rand() [17] std::__cxx11::list<common::Point, std::allocator<common::Point> >::~list()
+   [6] common::Point::operator<(common::Point const&) const [82] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::min() [55] std::__detail::_Scratch_list::_M_take_one(std::__detail::_List_node_base*)
+  [93] __gnu_cxx::__aligned_membuf<common::Point>::_M_ptr() const [60] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::seed(unsigned long) [90] std::__detail::_Scratch_list::swap(std::__detail::_List_node_base&)
+  [94] __gnu_cxx::__aligned_membuf<common::Point>::_M_addr() const [61] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::mersenne_twister_engine(unsigned long) [4] void std::__detail::_Scratch_list::merge<std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void> >(std::__detail::_List_node_base&, std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>)
+  [95] std::_List_node<common::Point>::_M_valptr() const [40] std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>::operator()() [107] std::__detail::_Scratch_list::_Scratch_list()
+   [8] std::_List_iterator<common::Point>::operator*() const [124] std::uniform_real_distribution<double>::param_type::param_type(double, double) [114] std::__detail::_List_node_header::_M_base()
+  [86] std::reverse_iterator<std::_List_iterator<common::Point> >::base() const [125] std::uniform_real_distribution<double>::uniform_real_distribution(double, double) [113] std::__detail::_List_node_header::_M_init()
+  [57] std::reverse_iterator<std::_List_iterator<common::Point> >::operator*() const [10] double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&) [131] std::__detail::_List_node_header::_List_node_header(std::__detail::_List_node_header&&)
+  [66] std::reverse_iterator<std::_List_const_iterator<common::Point> >::operator->() const [11] double std::uniform_real_distribution<double>::operator()<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&, std::uniform_real_distribution<double>::param_type const&) [115] std::__detail::_List_node_header::_List_node_header()
+  [63] std::_List_const_iterator<common::Point>::_M_const_cast() const [126] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl&&) [58] std::__detail::_Mod<unsigned long, 4294967296ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+ [103] std::_List_const_iterator<common::Point>::operator*() const [127] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl(std::allocator<std::_List_node<common::Point> >&&) [105] std::__detail::_Mod<unsigned long, 624ul, 1ul, 0ul, true, true>::__calc(unsigned long)
+  [42] std::_List_const_iterator<common::Point>::operator->() const [119] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::_List_impl() [59] unsigned long std::__detail::__mod<unsigned long, 4294967296ul, 1ul, 0ul>(unsigned long)
+  [78] std::uniform_real_distribution<double>::param_type::a() const [112] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_impl::~_List_impl() [106] unsigned long std::__detail::__mod<unsigned long, 624ul, 1ul, 0ul>(unsigned long)
+  [87] std::uniform_real_distribution<double>::param_type::b() const [92] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_dec_size(unsigned long) [88] std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>, double>::_Adaptor(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&)
+  [46] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_size() const [52] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_node() [12] std::__detail::_Adaptor<std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>, double>::operator()()
+ [123] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() const [45] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_inc_size(unsigned long) [14] long std::__distance<common::Point>(std::_List_iterator<common::Point>, std::_List_iterator<common::Point>, std::input_iterator_tag)
+  [47] std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_node_count() const [53] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_put_node(std::_List_node<common::Point>*) [19] long std::__distance<common::Point>(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::input_iterator_tag)
+ [109] std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() const [77] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_get_Node_allocator() [96] std::__detail::_List_node_base* std::__addressof<std::__detail::_List_node_base>(std::__detail::_List_node_base&)
+  [48] std::__cxx11::list<common::Point, std::allocator<common::Point> >::size() const [15] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_M_clear() [83] std::allocator<std::_List_node<common::Point> >* std::__addressof<std::allocator<std::_List_node<common::Point> > >(std::allocator<std::_List_node<common::Point> >&)
+ [111] std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() const [128] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::allocator<std::_List_node<common::Point> >&&) [13] double std::generate_canonical<double, 53ul, std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul> >(std::mersenne_twister_engine<unsigned long, 32ul, 624ul, 397ul, 31ul, 2567483615ul, 11ul, 4294967295ul, 7ul, 2636928640ul, 15ul, 4022730752ul, 18ul, 1812433253ul>&)
+ [104] std::__cxx11::list<common::Point, std::allocator<common::Point> >::empty() const [120] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base() [132] std::__is_constant_evaluated()
+ [116] std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() const [129] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::_List_base(std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >&&) [133] std::abs(double)
+  [91] std::__detail::_Scratch_list::empty() const [16] std::__cxx11::_List_base<common::Point, std::allocator<common::Point> >::~_List_base() [84] std::log(long double)
+   [5] std::__detail::_Scratch_list::_Ptr_cmp<std::_List_iterator<common::Point>, void>::operator()(std::__detail::_List_node_base*, std::__detail::_List_node_base*) const [33] common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<common::Point const&>(common::Point const&) [89] unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+   [9] std::_List_node<common::Point>::_M_valptr() [21] common::Point& std::__cxx11::list<common::Point, std::allocator<common::Point> >::emplace_back<double, double>(double&&, double&&) [122] std::remove_reference<std::allocator<std::_List_node<common::Point> >&>::type&& std::move<std::allocator<std::_List_node<common::Point> >&>(std::allocator<std::_List_node<common::Point> >&)
+  [20] std::_List_iterator<common::Point>::_List_iterator(std::__detail::_List_node_base*) [29] std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<common::Point const&>(common::Point const&) [76] common::Point const& std::forward<common::Point const&>(std::remove_reference<common::Point const&>::type&)
+  [28] std::_List_iterator<common::Point>::operator--() [36] std::_List_node<common::Point>* std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_create_node<double, double>(double&&, double&&) [39] double&& std::forward<double>(std::remove_reference<double>::type&)
+  [35] std::_List_iterator<common::Point>::operator++() [22] void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_initialize_dispatch<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>, std::_List_const_iterator<common::Point>, std::__false_type) [27] void std::__advance<std::_List_iterator<common::Point>, long>(std::_List_iterator<common::Point>&, long, std::bidirectional_iterator_tag)
+  [50] std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::__allocated_ptr(std::allocator<std::_List_node<common::Point> >&, std::_List_node<common::Point>*) [26] std::__cxx11::list<common::Point, std::allocator<common::Point> >::end() [69] void std::__advance<std::_List_const_iterator<common::Point>, long>(std::_List_const_iterator<common::Point>&, long, std::bidirectional_iterator_tag)
+  [79] std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::~__allocated_ptr() [37] std::__cxx11::list<common::Point, std::allocator<common::Point> >::back() [98] bool std::operator==<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&)
+  [51] std::__allocated_ptr<std::allocator<std::_List_node<common::Point> > >::operator=(decltype(nullptr)) [65] std::__cxx11::list<common::Point, std::allocator<common::Point> >::rend() [99] std::operator==(std::_List_iterator<common::Point> const&, std::_List_iterator<common::Point> const&)
+  [80] std::__new_allocator<std::_List_node<common::Point> >::deallocate(std::_List_node<common::Point>*, unsigned long) [3] std::__cxx11::list<common::Point, std::allocator<common::Point> >::sort() [54] std::operator==(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&)
+  [81] std::__new_allocator<std::_List_node<common::Point> >::allocate(unsigned long, void const*) [62] std::__cxx11::list<common::Point, std::allocator<common::Point> >::begin() [100] bool std::operator!=<std::_List_iterator<common::Point> >(std::reverse_iterator<std::_List_iterator<common::Point> > const&, std::reverse_iterator<std::_List_iterator<common::Point> > const&)
+ [110] std::__new_allocator<std::_List_node<common::Point> >::~__new_allocator() [25] std::__cxx11::list<common::Point, std::allocator<common::Point> >::erase(std::_List_const_iterator<common::Point>) [101] std::operator!=(std::_List_iterator<common::Point> const&, std::_List_iterator<common::Point> const&)
+  [97] std::reverse_iterator<std::_List_iterator<common::Point> >::reverse_iterator(std::_List_iterator<common::Point>) [30] std::__cxx11::list<common::Point, std::allocator<common::Point> >::insert(std::_List_const_iterator<common::Point>, common::Point const&) [34] std::operator!=(std::_List_const_iterator<common::Point> const&, std::_List_const_iterator<common::Point> const&)
+  [64] std::reverse_iterator<std::_List_iterator<common::Point> >::operator++() [68] std::__cxx11::list<common::Point, std::allocator<common::Point> >::rbegin() [7] common::compute_convex_hull<std::__cxx11::list<common::Point, std::allocator<common::Point> > >(std::__cxx11::list<common::Point, std::allocator<common::Point> >)::{lambda(common::Point const&, common::Point const&, common::Point const&)#1}::operator()(common::Point const&, common::Point const&, common::Point const&) const
+  [67] common::Point const* std::reverse_iterator<std::_List_const_iterator<common::Point> >::_S_to_pointer<std::_List_const_iterator<common::Point> >(std::_List_const_iterator<common::Point>) [31] std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_erase(std::_List_iterator<common::Point>) [85] operator new(unsigned long, void*)
+ [117] std::reverse_iterator<std::_List_const_iterator<common::Point> >::reverse_iterator(std::_List_const_iterator<common::Point>) [44] void std::__cxx11::list<common::Point, std::allocator<common::Point> >::_M_insert<common::Point const&>(std::_List_iterator<common::Point>, common::Point const&) [56] _init
