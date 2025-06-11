@@ -1,8 +1,11 @@
-# Convex Hull Server – Assignment 3 (Semester B 2024–2025)
+# Convex Hull Server – Assignment 3 (Semester B 2025)
 
-This project implements a **multi-threaded convex hull server**, developed step-by-step across ten phases as part of a systems programming assignment.
+This project implements a **multi-threaded convex hull server**, developed step-by-step across ten phases as part of a Operating Systems programming assignment.
 
 ---
+
+## Authors:
+Aviv Neeman, Gal Maymon
 
 ## ✅ Step-by-Step Overview
 
@@ -86,15 +89,15 @@ Added a **monitoring thread** that wakes using a **POSIX condition variable (`pt
 
 ---
 
-## 🛠️ Compilation
+## 🛠️ Compilation 
 
-Use `make` to build and run each step in its corresponding directory.
+Use `make step<n>` (n being the step from 1-10 excluding 5 and 8 that are templates).
 
 ## 🚀 Execution
 
-Example run for Step 4+:
+Example run for Step 4 (from the main directory, relevant for steps 4+):
 ```bash
-make
+make step4
 ```
 
 Then in another terminal:
@@ -109,8 +112,8 @@ CH
 
 ## 🔐 Synchronization Notes
 
-- Shared access to the `Graph` is protected by `std::mutex`.
-- `graph_busy` ensures mutual exclusion for operations requiring full graph access (e.g., `Newgraph`, `CH`).
+- Shared access to the `Graph` is protected by `std::mutex` whenever multi threading is used.
+- `graph_busy` ensures mutual exclusion for operations requiring full graph access (e.g., `Newgraph`).
 - Threads check ownership using `current_owner_fd` to allow fair access.
 
 ---
@@ -124,12 +127,8 @@ CH
 
 ---
 
-## 🧠 Notes
 
-- Followed the POSIX thread model with proper condition signaling.
-- Ensured correctness under concurrent client access.
-- Profiled container performance with fairness and repeatability.
 
 ---
 
-Made with ❤️ for Operating Systems course @ Bar-Ilan University.
+Made  for Operating Systems course 

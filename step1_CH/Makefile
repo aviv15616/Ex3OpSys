@@ -3,7 +3,6 @@ CXXFLAGS = -std=c++17 -Wall -g -I../common/include
 
 COMMON_SRC = \
     ../common/src/Graph.cpp \
-    ../common/src/Utils.cpp
 
 # יעד ברירת מחדל (כמו קודם)
 all: Main

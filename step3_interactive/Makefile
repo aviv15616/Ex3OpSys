@@ -3,7 +3,7 @@ CXXFLAGS = -std=c++17 -Wall -g -I../common/include
 
 SRC = main.cpp \
       ../common/src/Graph.cpp \
-      ../common/src/Utils.cpp
+
 
 TARGET = step3_CH
 

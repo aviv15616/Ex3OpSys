@@ -4,7 +4,6 @@ LDFLAGS = -pg
 
 COMMON_SRC = \
     ../common/src/Graph.cpp \
-    ../common/src/Utils.cpp
 
 RESULT_DIR = result
 EXEC_LIST = list_exec
