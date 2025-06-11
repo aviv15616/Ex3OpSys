@@ -1,9 +1,18 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -g
+CXXFLAGS = -std=c++17 -Wall -Wextra -pthread
 
-SRC = main.cpp ../common/Point.cpp ../common/Graph.cpp ../common/CH.cpp
+# נתיבי קבצים
+INCLUDES = -I../common/include
+SRC = server.cpp \
+      ../common/src/Graph.cpp \
 
-all: run
+TARGET = step10_server
 
-run: $(SRC)
-	$(CXX) $(CXXFLAGS) -o step10_producer_consumer $(SRC)
+all: $(TARGET)	
+	./$(TARGET)
+
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(TARGET) $(SRC)
+
+clean:
+	rm -f $(TARGET)

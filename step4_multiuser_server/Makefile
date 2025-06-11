@@ -1,9 +1,17 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -g
+CXXFLAGS = -std=c++17 -Wall -g -I../common/include
 
-SRC = main.cpp ../common/Point.cpp ../common/Graph.cpp ../common/CH.cpp
+SRC = server.cpp \
+      ../common/src/Graph.cpp \
+      ../common/src/Utils.cpp
 
-all: run
+TARGET = server
 
-run: $(SRC)
-	$(CXX) $(CXXFLAGS) -o step4_multiuser_server $(SRC)
+all: $(TARGET)
+	./$(TARGET)
+
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+
+clean:
+	rm -f $(TARGET)

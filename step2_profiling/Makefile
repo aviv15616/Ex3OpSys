@@ -80,4 +80,4 @@ vector: profile_vector.cpp $(COMMON_SRC)
 
 clean:
 	rm -f $(EXEC_LIST) $(EXEC_DEQUE) $(EXEC_VECTOR)
-	rm -rf $(RESULT_DIR)
+	

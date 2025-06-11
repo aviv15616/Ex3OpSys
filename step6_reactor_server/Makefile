@@ -1,9 +1,17 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -g
+CXXFLAGS = -std=c++17 -Wall -Wextra -g -I../common/include -I../step5_reactor_template
 
-SRC = main.cpp ../common/Point.cpp ../common/Graph.cpp ../common/CH.cpp
+SRC = server.cpp \
+      ../common/src/Graph.cpp \
 
-all: run
 
-run: $(SRC)
-	$(CXX) $(CXXFLAGS) -o step6_reactor_server $(SRC)
+TARGET = reactor_server
+
+all: $(TARGET)
+	./$(TARGET)
+
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
+
+clean:
+	rm -f $(TARGET)

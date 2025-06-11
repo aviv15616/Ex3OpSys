@@ -1,9 +1,21 @@
+# Makefile to compile Main.cpp using Proactor.hpp
+
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -g
+CXXFLAGS = -std=c++17 -Wall -Wextra -pthread
+TARGET = main_proactor_demo
+SRCS = main.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-SRC = main.cpp ../common/Point.cpp ../common/Graph.cpp ../common/CH.cpp
+all: $(TARGET)
 
-all: run
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-run: $(SRC)
-	$(CXX) $(CXXFLAGS) -o step8_proactor_template $(SRC)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $<
+
+run: $(TARGET)
+	./$(TARGET)
+
+clean:
+	rm -f $(OBJS) $(TARGET)
