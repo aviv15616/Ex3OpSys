@@ -31,13 +31,11 @@ std::unordered_map<int, std::string> partial_inputs;
 std::map<int, int> expected_points_map;
 std::map<int, bool> awaiting_points_map;
 
-// חסימה לוגית ל־Newgraph
-int newgraph_owner_fd = -1;
-
 std::string handle_command(int fd, const std::string& input) {
     if (awaiting_points_map[fd]) {
         std::string coords = input;
 
+        // אם הפקודה מתחילה ב-"Newpoint", הסר את המילה
         if (input.find("Newpoint") == 0) {
             size_t pos = input.find(' ');
             if (pos == std::string::npos)
@@ -72,7 +70,6 @@ std::string handle_command(int fd, const std::string& input) {
         if (expected_points_map[fd] <= 0) {
             awaiting_points_map[fd] = false;
             expected_points_map.erase(fd);
-            newgraph_owner_fd = -1;
             return "Graph initialized with all points.\n";
         }
 
@@ -84,16 +81,12 @@ std::string handle_command(int fd, const std::string& input) {
     ss >> command;
 
     if (command == "Newgraph") {
-        if (newgraph_owner_fd != -1 && newgraph_owner_fd != fd)
-            return "Another client is currently initializing a graph. Please wait...\n";
-
         int n;
         if (!(ss >> n)) return "Error: Usage: Newgraph <n>\n";
 
         graph.clear();
         expected_points_map[fd] = n;
         awaiting_points_map[fd] = true;
-        newgraph_owner_fd = fd;
         return "OK: Send " + to_string(n) + " point(s) in format x,y or x y\n";
     } else if (command == "Newpoint") {
         size_t pos = input.find(' ');
@@ -155,8 +148,6 @@ void handle_client(int fd) {
         partial_inputs.erase(fd);
         expected_points_map.erase(fd);
         awaiting_points_map.erase(fd);
-        if (newgraph_owner_fd == fd)
-            newgraph_owner_fd = -1;
         return;
     }
 

@@ -1,11 +1,11 @@
 ===== GPROF Efficiency Report =====
 [list]
-Average: 1.978 seconds
+Average: 1.482 seconds
 
 [deque]
-Average: 1.44 seconds
+Average: 0.924 seconds
 
 [vector]
-Average: 0.758 seconds
+Average: 0.682 seconds
 
 >> Based on final cumulative time in gprof output (total run time approximation)
