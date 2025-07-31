@@ -6,7 +6,7 @@
 
 using namespace std;
 using namespace common;
-
+s
 int main() {
     vector<Point> points;
 

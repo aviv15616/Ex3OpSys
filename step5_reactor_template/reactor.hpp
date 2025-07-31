@@ -1,5 +1,6 @@
 // step5_reactor_template - main entry point
 #pragma once
+#include <cstdio>
 #include <unordered_map>
 #include <functional>
 #include <sys/select.h>

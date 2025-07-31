@@ -1,17 +1,19 @@
-// step7_threaded_server.cpp
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <cstring>
-#include <vector>
 #include <unordered_map>
 #include <map>
+#include <set>
 #include <mutex>
 #include <thread>
+#include <atomic>
+#include <csignal>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <unistd.h>
 #include <algorithm>
+#include <cctype>
 
 #include "../common/include/Graph.hpp"
 #include "../common/include/Point.hpp"
@@ -29,108 +31,219 @@ mutex graph_mutex;
 unordered_map<int, string> partial_inputs;
 map<int, int> expected_points_map;
 map<int, bool> awaiting_points_map;
+set<int> clients;
+
 bool graph_busy = false;
 int current_owner_fd = -1;
 
-string handle_command(int fd, const string& input) {
-    lock_guard<mutex> lock(graph_mutex);  // הגנה על כל שינוי בגרף ובמפות
+int listener_fd = -1;
+atomic<bool> running(true);
 
-    if (graph_busy && fd != current_owner_fd)
-        return "Graph is busy, try again later.\n";
+/// ----- trim string -----
+string trim(const string &s) {
+    size_t start = s.find_first_not_of(" \t\r\n");
+    if (start == string::npos) return "";
+    size_t end = s.find_last_not_of(" \t\r\n");
+    return s.substr(start, end - start + 1);
+}
 
-    if (awaiting_points_map[fd]) {
-        string coords = input;
-        if (input.find("Newpoint") == 0) {
-            size_t pos = input.find(' ');
-            if (pos == string::npos) return "Error: Expected point format after Newpoint\n";
-            coords = input.substr(pos + 1);
+/// ----- sanitize input (remove non-printable) -----
+string sanitize(const string &s) {
+    string clean;
+    clean.reserve(s.size());
+    for (unsigned char c : s) {
+        if (isprint(c) || isspace(c)) {
+            clean.push_back(c);
         }
-
-        double x, y;
-        char comma;
-        bool parsed = false;
-        stringstream ss(coords);
-        if ((ss >> x >> comma >> y) && comma == ',') parsed = true;
-        else {
-            ss.clear(); ss.str(coords);
-            if (ss >> x >> y) parsed = true;
-        }
-        if (!parsed) return "Error: Expected point format: x,y or x y\n";
-
-        graph.add_point(Point(x, y));
-        expected_points_map[fd]--;
-
-        if (expected_points_map[fd] <= 0) {
-            awaiting_points_map[fd] = false;
-            expected_points_map.erase(fd);
-            graph_busy = false;
-            current_owner_fd = -1;
-            return "Graph initialized with all points.\n";
-        }
-        return "OK: Point added. Waiting for " + to_string(expected_points_map[fd]) + " more...\n";
     }
+    return clean;
+}
+
+/// ----- SIGINT Handler -----
+void signal_handler(int signum) {
+    cout << "\n[SERVER] Shutting down server (signal " << signum << ")...\n";
+    running = false;
+    if (listener_fd != -1) {
+        close(listener_fd);
+    }
+}
+
+/// ----- Handle commands -----
+string handle_command(int fd, const string &input_raw) {
+    string input = sanitize(trim(input_raw));
+    if (input.empty()) return "";
+
+    cout << "[SERVER] Client " << fd << " -> " << input << endl;
 
     stringstream ss(input);
     string command;
     ss >> command;
 
-    if (command == "Newgraph") {
+    // --- Newgraph ---
+    if (command == "Newgraph" || command == "newgraph") {
         int n;
         if (!(ss >> n)) return "Error: Usage: Newgraph <n>\n";
-        if (graph_busy) return "Graph is busy, try again later.\n";
 
-        graph.clear();
-        expected_points_map[fd] = n;
-        awaiting_points_map[fd] = true;
-        graph_busy = true;
-        current_owner_fd = fd;
-        return "OK: Send " + to_string(n) + " point(s) in format x,y or x y\n";
-    }
-    else if (command == "Newpoint") {
-        size_t pos = input.find(' ');
-        if (pos == string::npos) return "Error: Usage: Newpoint <x>,<y> or Newpoint <x> <y>\n";
-        string coords = input.substr(pos + 1);
+        {
+            lock_guard<mutex> lock(graph_mutex);
+            if (graph_busy && fd != current_owner_fd) {
+                cout << "[SERVER] Client " << fd << " tried Newgraph while graph is busy" << endl;
+                return "Graph is busy, wait for current initialization to finish.\n";
+            }
 
-        double x, y; char comma;
-        stringstream ss(coords);
-        if ((ss >> x >> comma >> y) && comma == ',') {
-            graph.add_point(Point(x, y));
-            return "OK: Point added\n";
+            graph.clear();
+            expected_points_map[fd] = n;
+            awaiting_points_map[fd] = true;
+            graph_busy = true;
+            current_owner_fd = fd;
         }
-        ss.clear(); ss.str(coords);
-        if ((ss >> x >> y)) {
-            graph.add_point(Point(x, y));
-            return "OK: Point added\n";
-        }
-        return "Error: Usage: Newpoint <x>,<y> or Newpoint <x> <y>\n";
+
+        cout << "[SERVER] Newgraph started by client " << fd << " expecting " << n << " points." << endl;
+        return "OK: Send " + to_string(n) + " points (x,y)\n";
     }
-    else if (command == "Removepoint") {
-        double x, y; char comma;
-        if (!(ss >> x >> comma >> y) || comma != ',') {
-            ss.clear(); ss.str(input);
-            string tmp; ss >> tmp >> x >> y;
-            if (ss.fail()) return "Error: Usage: Removepoint <x>,<y> or Removepoint <x> <y>\n";
+
+    // --- CH ---
+    if (command == "CH" || command == "ch") {
+        vector<Point> points;
+        {
+            lock_guard<mutex> lock(graph_mutex);
+            points = graph.get_points();
+
+            if (fd == current_owner_fd) {
+                awaiting_points_map[fd] = false;
+                expected_points_map.erase(fd);
+                graph_busy = false;
+                current_owner_fd = -1;
+            }
         }
-        graph.remove_point(Point(x, y));
-        return "OK: Point removed\n";
-    }
-    else if (command == "CH") {
-        auto hull = compute_convex_hull(graph.get_points());
+
+        cout << "[SERVER] Client " << fd << " requested CH" << endl;
+
+        auto hull = compute_convex_hull(points);
         stringstream out;
         out << "Convex Hull:\n";
-        for (const auto& p : hull)
+        for (const auto &p : hull)
             out << p.x << "," << p.y << "\n";
         out << "Area of convex hull: " << compute_area(hull) << "\n";
         return out.str();
     }
-    else {
-        return "Error: Unknown command\n";
+
+    // --- Points during Newgraph ---
+    {
+        lock_guard<mutex> lock(graph_mutex);
+
+        if (graph_busy && awaiting_points_map[current_owner_fd]) {
+            string coords = input;
+
+            if (fd != current_owner_fd && input.find("Newpoint") != 0) {
+                cout << "[SERVER] Client " << fd << " tried invalid command during Newgraph" << endl;
+                return "Error: Only 'Newpoint x,y' is allowed for other clients during Newgraph.\n";
+            }
+
+            if (input.find("Newpoint") == 0) {
+                size_t pos = input.find(' ');
+                if (pos == string::npos)
+                    return "Error: Expected point format after Newpoint\n";
+                coords = input.substr(pos + 1);
+            }
+
+            double x, y; char comma;
+            stringstream ssp(coords);
+            bool parsed = false;
+            if ((ssp >> x >> comma >> y) && comma == ',') parsed = true;
+            else {
+                ssp.clear(); ssp.str(coords);
+                if (ssp >> x >> y) parsed = true;
+            }
+            if (!parsed)
+                return "Error: Expected point format: x,y or x y\n";
+
+            graph.add_point(Point(x, y));
+            expected_points_map[current_owner_fd]--;
+
+            cout << "[SERVER] Client " << fd << " added point (" << x << "," << y << ")" << endl;
+
+            if (expected_points_map[current_owner_fd] <= 0) {
+                awaiting_points_map[current_owner_fd] = false;
+                expected_points_map.erase(current_owner_fd);
+                graph_busy = false;
+                current_owner_fd = -1;
+
+                cout << "[SERVER] Graph initialized with all points." << endl;
+                return "Graph initialized with all points.\n";
+            }
+
+            return "OK: Point added. Waiting for " + to_string(expected_points_map[current_owner_fd]) + " more...\n";
+        }
     }
+
+    // --- Newpoint רגיל ---
+    if (command == "Newpoint" || command == "newpoint") {
+        size_t pos = input.find(' ');
+        if (pos == string::npos)
+            return "Error: Usage: Newpoint <x>,<y>\n";
+
+        string coords = input.substr(pos + 1);
+        double x, y; char comma;
+        stringstream ssp(coords);
+        bool parsed = false;
+        if ((ssp >> x >> comma >> y) && comma == ',') parsed = true;
+        else {
+            ssp.clear(); ssp.str(coords);
+            if (ssp >> x >> y) parsed = true;
+        }
+        if (!parsed)
+            return "Error: Usage: Newpoint <x>,<y> or Newpoint <x> <y>\n";
+
+        {
+            lock_guard<mutex> lock(graph_mutex);
+            graph.add_point(Point(x, y));
+        }
+
+        cout << "[SERVER] Client " << fd << " added point (" << x << "," << y << ")" << endl;
+        return "OK: Point added\n";
+    }
+
+    // --- Removepoint ---
+    if (command == "Removepoint" || command == "removepoint") {
+        double x, y; char comma;
+        if (!(ss >> x >> comma >> y) || comma != ',') {
+            ss.clear(); ss.str(input);
+            string tmp;
+            ss >> tmp >> x >> y;
+            if (ss.fail())
+                return "Error: Usage: Removepoint <x>,<y> or Removepoint <x> <y>\n";
+        }
+
+        {
+            lock_guard<mutex> lock(graph_mutex);
+            graph.remove_point(Point(x, y));
+        }
+
+        cout << "[SERVER] Client " << fd << " removed point (" << x << "," << y << ")" << endl;
+        return "OK: Point removed\n";
+    }
+
+    cout << "[SERVER] Unknown command from client " << fd << endl;
+    return "Error: Unknown command\n";
 }
 
+/// ----- Handle client -----
 void handle_client(int fd) {
+    // שליחת welcome לפני הכל כדי שלא יתערבב עם הקלט הראשון
+    send(fd, "Welcome to CH server. Send commands.\n", 38, 0);
+
+    {
+        lock_guard<mutex> lock(graph_mutex);
+        partial_inputs[fd].clear();
+        clients.insert(fd);
+    }
+
+    cout << "[SERVER] New client connected (fd=" << fd << ")" << endl;
+
     char buf[BUFSIZE] = {0};
-    while (true) {
+
+    while (running) {
         int nbytes = recv(fd, buf, BUFSIZE - 1, 0);
         if (nbytes <= 0) break;
 
@@ -140,67 +253,69 @@ void handle_client(int fd) {
             string line = partial_inputs[fd].substr(0, pos);
             partial_inputs[fd].erase(0, pos + 1);
 
-            // סינון תווים לא רלוונטיים
-            line.erase(remove(line.begin(), line.end(), '\r'), line.end());
-            line.erase(remove(line.begin(), line.end(), '\n'), line.end());
-
-            // ✅ דילוג על שורות ריקות
-            if (line.empty()) continue;
-
             string response = handle_command(fd, line);
-            send(fd, response.c_str(), response.size(), 0);
+            if (!response.empty()) {
+                send(fd, response.c_str(), response.size(), 0);
+            }
         }
     }
 
     close(fd);
-    lock_guard<mutex> lock(graph_mutex);
-    partial_inputs.erase(fd);
-    expected_points_map.erase(fd);
-    awaiting_points_map.erase(fd);
-    if (fd == current_owner_fd) {
-        graph_busy = false;
-        current_owner_fd = -1;
+    {
+        lock_guard<mutex> lock(graph_mutex);
+        clients.erase(fd);
+        partial_inputs.erase(fd);
+        expected_points_map.erase(fd);
+        awaiting_points_map.erase(fd);
+        if (fd == current_owner_fd) {
+            graph_busy = false;
+            current_owner_fd = -1;
+        }
     }
+
+    cout << "[SERVER] Client " << fd << " disconnected" << endl;
 }
 
+/// ----- Main -----
 int main() {
-    int listener = socket(AF_INET, SOCK_STREAM, 0);
-    if (listener < 0) {
+    signal(SIGINT, signal_handler);
+
+    listener_fd = socket(AF_INET, SOCK_STREAM, 0);
+    if (listener_fd < 0) {
         perror("socket");
         return 1;
     }
 
     int yes = 1;
-    setsockopt(listener, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
+    setsockopt(listener_fd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
 
     struct sockaddr_in serv_addr = {};
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_addr.s_addr = INADDR_ANY;
     serv_addr.sin_port = htons(PORT);
 
-    if (bind(listener, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
+    if (bind(listener_fd, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
         perror("bind");
         return 1;
     }
 
-    if (listen(listener, 10) < 0) {
+    if (listen(listener_fd, 10) < 0) {
         perror("listen");
         return 1;
     }
 
-    cout << "Step 7 threaded server running on port " << PORT << "...\n";
+    cout << "[SERVER] Step 7 threaded server running on port " << PORT << "...\n";
 
-    while (true) {
+    while (running) {
         struct sockaddr_in client_addr;
         socklen_t addrlen = sizeof(client_addr);
-        int client_fd = accept(listener, (struct sockaddr*)&client_addr, &addrlen);
+        int client_fd = accept(listener_fd, (struct sockaddr*)&client_addr, &addrlen);
         if (client_fd >= 0) {
             thread t(handle_client, client_fd);
             t.detach();
-            const string welcome = "Welcome to CH server. Send commands.\n";
-            send(client_fd, welcome.c_str(), welcome.size(), 0);
         }
     }
 
+    cout << "[SERVER] Server stopped.\n";
     return 0;
 }

@@ -41,6 +41,46 @@ string handle_command(int fd, const string &input)
         return "Another user is currently modifying or computing the graph. Please wait.\n";
     }
 
+    // חילוץ פקודה ראשית מהקלט
+    stringstream ss(input);
+    string command;
+    ss >> command;
+
+    // אם המשתמש שולח Newgraph -> תמיד לאתחל מחדש, גם באמצע הכנסת נקודות
+    if (command == "Newgraph") {
+        int n;
+        if (!(ss >> n))
+            return "Error: Usage: Newgraph <n>\n";
+
+        // איפוס מצב קודם
+        graph.clear();
+        expected_points_map[fd] = n;
+        awaiting_points_map[fd] = true;
+        graph_busy = true;
+        current_owner_fd = fd;
+
+        return "OK: Send " + to_string(n) + " point(s) in format x,y or x y\n";
+    }
+
+    // אם המשתמש שולח CH -> לחשב גם אם באמצע הכנסת נקודות
+    if (command == "CH") {
+        auto hull = compute_convex_hull(graph.get_points());
+
+        // לאתחל מצב (כדי שהכנסה תסתיים)
+        awaiting_points_map[fd] = false;
+        expected_points_map.erase(fd);
+        graph_busy = false;
+        current_owner_fd = -1;
+
+        stringstream out;
+        out << "Convex Hull:\n";
+        for (const auto &p : hull)
+            out << p.x << "," << p.y << "\n";
+        out << "Area of convex hull: " << compute_area(hull) << "\n";
+        return out.str();
+    }
+
+    // אם מחכים לנקודות (ולא פקודת Newgraph/CH)
     if (awaiting_points_map[fd]) {
         string coords = input;
         if (input.find("Newpoint") == 0) {
@@ -85,75 +125,12 @@ string handle_command(int fd, const string &input)
         return "OK: Point added. Waiting for " + to_string(expected_points_map[fd]) + " more...\n";
     }
 
-    stringstream ss(input);
-    string command;
-    ss >> command;
-
-    if (command == "Newgraph") {
-        int n;
-        if (!(ss >> n))
-            return "Error: Usage: Newgraph <n>\n";
-
-        if (graph_busy && fd != current_owner_fd) {
-            return "Another user is currently working on the graph. Please wait.\n";
-        }
-
-        graph.clear();
-        expected_points_map[fd] = n;
-        awaiting_points_map[fd] = true;
-        graph_busy = true;
-        current_owner_fd = fd;
-        return "OK: Send " + to_string(n) + " point(s) in format x,y or x y\n";
-    }
-    else if (command == "Newpoint") {
-        size_t pos = input.find(' ');
-        if (pos == string::npos) return "Error: Usage: Newpoint <x>,<y> or Newpoint <x> <y>\n";
-        string coords = input.substr(pos + 1);
-
-        double x, y;
-        char comma;
-        {
-            stringstream ss(coords);
-            if ((ss >> x >> comma >> y) && comma == ',') {
-                graph.add_point(Point(x, y));
-                return "OK: Point added\n";
-            }
-        }
-        {
-            stringstream ss(coords);
-            if ((ss >> x >> y)) {
-                graph.add_point(Point(x, y));
-                return "OK: Point added\n";
-            }
-        }
-        return "Error: Usage: Newpoint <x>,<y> or Newpoint <x> <y>\n";
+    // שאר הפקודות כרגיל
+    if (command == "Newpoint") {
+        // ...
     }
     else if (command == "Removepoint") {
-        double x, y;
-        char comma;
-        if (!(ss >> x >> comma >> y) || comma != ',') {
-            ss.clear();
-            ss.str(input);
-            string tmp;
-            ss >> tmp >> x >> y;
-            if (ss.fail())
-                return "Error: Usage: Removepoint <x>,<y> or Removepoint <x> <y>\n";
-        }
-        graph.remove_point(Point(x, y));
-        return "OK: Point removed\n";
-    }
-    else if (command == "CH") {
-        graph_busy = true;
-        current_owner_fd = fd;
-        auto hull = compute_convex_hull(graph.get_points());
-        graph_busy = false;
-        current_owner_fd = -1;
-        stringstream out;
-        out << "Convex Hull:\n";
-        for (const auto &p : hull)
-            out << p.x << "," << p.y << "\n";
-        out << "Area of convex hull: " << compute_area(hull) << "\n";
-        return out.str();
+        // ...
     }
     else {
         return "Error: Unknown command\n";
@@ -220,10 +197,19 @@ int main()
                 } else {
                     memset(buf, 0, BUFSIZE);
                     int nbytes = recv(i, buf, BUFSIZE - 1, 0);
-                    if (nbytes <= 0) {
-                        close(i);
-                        FD_CLR(i, &master);
-                    } else {
+                   if (nbytes <= 0) {
+    // אם הלקוח היה הבעלים של הנעילה -> שחרר אותה
+    if (i == current_owner_fd) {
+        graph_busy = false;
+        current_owner_fd = -1;
+        awaiting_points_map[i] = false;
+        expected_points_map.erase(i);
+    }
+
+    close(i);
+    FD_CLR(i, &master);
+}
+ else {
                         string input(buf);
                         input.erase(remove(input.begin(), input.end(), '\r'), input.end());
                         input.erase(remove(input.begin(), input.end(), '\n'), input.end());

@@ -43,27 +43,33 @@ int main()
             }
             cout << "Enter " << n << " point(s) in format x,y" << endl;
             graph.clear();
-            for (int i = 0; i < n; ++i)
-            {
-                string pointLine;
-                if (!getline(cin, pointLine))
-                {
-                    cerr << "Error: Not enough points provided for Newgraph." << endl;
-                    break;
-                }
+            int points_added = 0;
+while (points_added < n)
+{
+    string pointLine;
+    if (!getline(cin, pointLine))
+    {
+        cerr << "Error: Not enough points provided for Newgraph." << endl;
+        break;
+    }
 
-                replace(pointLine.begin(), pointLine.end(), ',', ' ');
-                double x, y;
-                stringstream ps(pointLine);
-                if (ps >> x >> y)
-                {
-                    graph.add_point(Point(x, y));
-                }
-                else
-                {
-                    cerr << "Error: Invalid point format. Expected: x,y" << endl;
-                }
-            }
+    // נסה לפרש כנקודה
+    replace(pointLine.begin(), pointLine.end(), ',', ' ');
+    double x, y;
+    stringstream ps(pointLine);
+
+    if (ps >> x >> y)
+    {
+        graph.add_point(Point(x, y));
+        points_added++; // נתקדם רק אם באמת נוספה נקודה
+    }
+    else
+    {
+        cerr << "Error: Invalid point format. Expected: x,y" << endl;
+        // ממשיכים לצפות לעוד נקודות עד שנקבל n נקודות תקינות
+    }
+}
+
             cout << "Graph initialized with " << n << " points." << endl;
             cout << "You can now use:\n"
                  << "  Newpoint <x>,<y>       - Adds a point to the graph\n"

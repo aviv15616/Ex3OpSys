@@ -1,4 +1,3 @@
-// step6_reactor_server.cpp
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -11,6 +10,7 @@
 #include <unistd.h>
 #include <algorithm>
 #include <map>
+#include <csignal>
 
 #include "../common/include/Graph.hpp"
 #include "../common/include/Point.hpp"
@@ -31,10 +31,62 @@ std::unordered_map<int, std::string> partial_inputs;
 std::map<int, int> expected_points_map;
 std::map<int, bool> awaiting_points_map;
 
-// חסימה לוגית ל־Newgraph
-int newgraph_owner_fd = -1;
+// חסימה לוגית לכל פעולה
+bool graph_busy = false;
+int current_owner_fd = -1;
+
+void release_lock(int fd) {
+    if (fd == current_owner_fd) {
+        graph_busy = false;
+        current_owner_fd = -1;
+    }
+    awaiting_points_map.erase(fd);
+    expected_points_map.erase(fd);
+    partial_inputs.erase(fd);
+}
 
 std::string handle_command(int fd, const std::string& input) {
+    // חסימת לקוחות אחרים אם הגרף תפוס
+    if (graph_busy && fd != current_owner_fd) {
+        return "Graph is busy, please wait...\n";
+    }
+
+    std::stringstream ss(input);
+    std::string command;
+    ss >> command;
+
+    // --- PRIORITY: Newgraph ---
+    if (command == "Newgraph") {
+        int n;
+        if (!(ss >> n)) return "Error: Usage: Newgraph <n>\n";
+
+        // הפסק מצב קודם ואפס נעילה
+        graph.clear();
+        expected_points_map[fd] = n;
+        awaiting_points_map[fd] = true;
+        graph_busy = true;
+        current_owner_fd = fd;
+
+        return "OK: Send " + std::to_string(n) + " point(s) in format x,y or x y\n";
+    }
+
+    // --- PRIORITY: CH ---
+    if (command == "CH") {
+        // CH ניתן להרצה גם באמצע מצב awaiting_points
+        auto hull = compute_convex_hull(graph.get_points());
+
+        // שחרור נעילה אחרי החישוב
+        release_lock(fd);
+
+        std::stringstream out;
+        out << "Convex Hull:\n";
+        for (const auto& p : hull)
+            out << p.x << "," << p.y << "\n";
+        out << "Area of convex hull: " << compute_area(hull) << "\n";
+        return out.str();
+    }
+
+    // אם הלקוח במצב הכנסת נקודות
     if (awaiting_points_map[fd]) {
         std::string coords = input;
 
@@ -50,7 +102,7 @@ std::string handle_command(int fd, const std::string& input) {
         bool parsed = false;
 
         {
-            stringstream ss(coords);
+            std::stringstream ss(coords);
             if ((ss >> x >> comma >> y) && comma == ',') {
                 parsed = true;
             } else {
@@ -72,47 +124,31 @@ std::string handle_command(int fd, const std::string& input) {
         if (expected_points_map[fd] <= 0) {
             awaiting_points_map[fd] = false;
             expected_points_map.erase(fd);
-            newgraph_owner_fd = -1;
+            release_lock(fd);
             return "Graph initialized with all points.\n";
         }
 
-        return "OK: Point added. Waiting for " + to_string(expected_points_map[fd]) + " more...\n";
+        return "OK: Point added. Waiting for " + std::to_string(expected_points_map[fd]) + " more...\n";
     }
 
-    stringstream ss(input);
-    string command;
-    ss >> command;
-
-    if (command == "Newgraph") {
-        if (newgraph_owner_fd != -1 && newgraph_owner_fd != fd)
-            return "Another client is currently initializing a graph. Please wait...\n";
-
-        int n;
-        if (!(ss >> n)) return "Error: Usage: Newgraph <n>\n";
-
-        graph.clear();
-        expected_points_map[fd] = n;
-        awaiting_points_map[fd] = true;
-        newgraph_owner_fd = fd;
-        return "OK: Send " + to_string(n) + " point(s) in format x,y or x y\n";
-    } else if (command == "Newpoint") {
+    // הפקודות הרגילות (לא במצב awaiting_points)
+    if (command == "Newpoint") {
+        double x, y;
+        char comma;
         size_t pos = input.find(' ');
         if (pos == std::string::npos)
             return "Error: Usage: Newpoint <x>,<y> or Newpoint <x> <y>\n";
         std::string coords = input.substr(pos + 1);
 
-        double x, y;
-        char comma;
-
         {
-            stringstream ss(coords);
+            std::stringstream ss(coords);
             if ((ss >> x >> comma >> y) && comma == ',') {
                 graph.add_point(Point(x, y));
                 return "OK: Point added\n";
             }
         }
         {
-            stringstream ss(coords);
+            std::stringstream ss(coords);
             if ((ss >> x >> y)) {
                 graph.add_point(Point(x, y));
                 return "OK: Point added\n";
@@ -126,21 +162,13 @@ std::string handle_command(int fd, const std::string& input) {
         if (!(ss >> x >> comma >> y) || comma != ',') {
             ss.clear();
             ss.str(input);
-            string tmp;
+            std::string tmp;
             ss >> tmp >> x >> y;
             if (ss.fail())
                 return "Error: Usage: Removepoint <x>,<y> or Removepoint <x> <y>\n";
         }
         graph.remove_point(Point(x, y));
         return "OK: Point removed\n";
-    } else if (command == "CH") {
-        auto hull = compute_convex_hull(graph.get_points());
-        stringstream out;
-        out << "Convex Hull:\n";
-        for (const auto& p : hull)
-            out << p.x << "," << p.y << "\n";
-        out << "Area of convex hull: " << compute_area(hull) << "\n";
-        return out.str();
     } else {
         return "Error: Unknown command\n";
     }
@@ -150,13 +178,11 @@ void handle_client(int fd) {
     char buf[BUFSIZE] = {0};
     int nbytes = recv(fd, buf, BUFSIZE - 1, 0);
     if (nbytes <= 0) {
+        // אם הלקוח מת -> שחרר נעילה אם הוא הבעלים
+        release_lock(fd);
+
         close(fd);
         reactor.remove_fd(fd);
-        partial_inputs.erase(fd);
-        expected_points_map.erase(fd);
-        awaiting_points_map.erase(fd);
-        if (newgraph_owner_fd == fd)
-            newgraph_owner_fd = -1;
         return;
     }
 
@@ -173,6 +199,12 @@ void handle_client(int fd) {
 }
 
 int main() {
+    // טיפול ב־Ctrl+C בשרת עצמו -> סגירה יפה
+    signal(SIGINT, [](int) {
+        std::cout << "\nServer interrupted. Shutting down...\n";
+        exit(0);
+    });
+
     int listener = socket(AF_INET, SOCK_STREAM, 0);
     if (listener < 0) {
         perror("socket");
